@@ -1,1 +1,1 @@
-web: bundle exec rails server -p $PORT
+web: java -Dserver.port=$PORT $JAVA_OPTS -war target/startopole-1.0-SNAPSHOT.war
