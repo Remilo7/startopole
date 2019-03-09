@@ -90,12 +90,12 @@ body, html {
 /* Obrazek startowy */
 
 #bg_div {
-    background: url('../img/bg.jpg') no-repeat center;
+    background: url('../img/bg.jpg') no-repeat center top;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 700px;
+    height: 500px;
 }
 
 /* Kolejne sekcje strony */
