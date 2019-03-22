@@ -45,7 +45,7 @@
                             <li><a href="#section3">Treningi</a></li>
                             <li><a href="#section4">Galeria</a></li>
                             <li><a href="#section5">Kontakt</a></li>
-                            <li><a href="#section6"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+                            <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
                         </ul>
                     </div>
                 </div>
