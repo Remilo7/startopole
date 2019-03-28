@@ -1,17 +1,9 @@
 package com.startopole.entity;
 
-//import jdk.nashorn.internal.objects.annotations.Getter;
-//import jdk.nashorn.internal.objects.annotations.Setter;
-//import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@EqualsAndHashCode
-//@Setter
-//@Getter
 @Table(name = "Uzytkownik")
 
 public class UzytkownikEntity {
@@ -34,5 +26,7 @@ public class UzytkownikEntity {
 
     @Column(name = "name", nullable = false, unique = false)
     private String name;
+
+
 
 }
