@@ -9,5 +9,8 @@
         <module name="startopole" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="startopole" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
