@@ -1,6 +1,5 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -9,10 +8,9 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Logowanie</title>
+    <title>Rejestracja</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
@@ -65,49 +63,29 @@
 <div class="container col-sm-12">
     <div class="col-md-4"></div>
     <div class="card col-md-4">
-
         <div class="card-header">
-            <h3>Logowanie</h3>
+            <h3>Rejestracja</h3>
         </div>
-
-        <!-- /login?error=true -->
-        <c:if test="${param.error == 'true'}">
-            <div style="color:red;margin:10px 0px;">
-
-                Login Failed!!!<br />
-                Reason :  ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
-
-            </div>
-        </c:if>
-
         <div class="card-body">
-
-            <form action="${pageContext.request.contextPath}/j_spring_security_check" method='POST'>
-
+            <form:form action="addUser" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="username" placeholder="username">
-                    <input type="password" class="form-control" name="password" placeholder="password">
-                </div>
-
-                <div class="form group">
-                    <div class="row remember">
-                        <input type="checkbox">Zapamiętaj hasło
-                    </div>
+                    <form:input type="text" path="userName" class="form-control" placeholder="Nazwa użytkownika" />
+                    <%--<form:input type="email" path="email" class="form-control" placeholder="Adres e-mail" />--%>
+                    <form:input type="password" path="password" class="form-control" placeholder="Hasło" />
+                    <%--<form:input type="text" class="form-control" path="name" placeholder="Imię" />--%>
+                    <%--<form:input type="text" class="form-control" path="surname" placeholder="Nazwisko" />--%>
+                    <%--<form:input type="date" class="form-control" path="reg_date" placeholder="Data urodzenia" />--%>
+                    <%--<form:input type="tel" class="form-control" path="reg_phone" pattern="^[2-9]\d{2}-\d{3}-\d{3}$" placeholder="Telefon kontaktowy" />--%>
                 </div>
 
                 <div class="text-center">
-                    <input type="submit" value="Zaloguj" class="btn login_btn form-control">
+                    <input type="submit" value="Zarejestruj" class="btn login_btn form-control">
                 </div>
-            </form>
-
+            </form:form>
         </div>
-
         <div class="card-footer">
             <div class="d-flex justify-content-center links">
-                Nie posiadasz konta?<a href="registration">Zarejestruj się</a>
-            </div>
-            <div class="d-flex justify-content-center">
-                <a href="#">Zapomniałeś hasła?</a>
+                Posiadasz już konto?<a href="login">Zaloguj się</a>
             </div>
         </div>
     </div>

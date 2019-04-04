@@ -100,6 +100,11 @@ body, html {
 
 /* Kolejne sekcje strony */
 
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+
 #section0 {
     padding-top:50px;
     height:50px;
@@ -108,32 +113,42 @@ body, html {
 
 #section1 {
     padding-top:50px;
-    height:500px;
+    padding-bottom: 220px;
+    height:100%;
     color: rgb(48,50,59);
     background-color: white;
 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 90%);
-    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 90%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 90%);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 90%);
 }
 
 #section2 {
-    padding-top:125px;
-    height:800px;
+    padding-top:200px;
+    padding-bottom: 300px;
+    height:100%;
     color: rgb(48,50,59);
     background-color: white;
 
-    -webkit-clip-path: polygon(0 9%, 100% 25%, 100% 90%, 0 75%);
-    clip-path: polygon(0 9%, 100% 25%, 100% 90%, 0 75%);
+    -webkit-clip-path: polygon(
+            0 10%,
+            100% 10vw,
+            100% 90%,
+            0 calc(100% - 10vw));
+    clip-path: polygon(0 10%, 100% 10vw, 100% 90%, 0 calc(100% - 10vw));
 }
 
 #section3 {
-    padding-top:180px;
+    padding-top:200px;
     height:700px;
     color: rgb(48,50,59);
     background-color: white;
 
-    -webkit-clip-path: polygon(0 25%, 100% 10%, 100% 75%, 0 90%);
-    clip-path: polygon(0 25%, 100% 10%, 100% 75%, 0 90%);
+    -webkit-clip-path: polygon(
+            0 10%,
+            100% 10vw,
+            100% calc(100% - 10vw),
+            0 90%);
+    clip-path: polygon(0 10%, 100% 10vw, 100% calc(100% - 10vw), 0 90%);
 }
 
 #section4 {padding-top:125px;
@@ -141,8 +156,8 @@ body, html {
     color: rgb(48,50,59);
     background-color: white;
 
-    -webkit-clip-path: polygon(0 10%, 100% 25%, 100% 75%, 0 90%);
-    clip-path: polygon(0 10%, 100% 25%, 100% 75%, 0 90%);
+    -webkit-clip-path: polygon(0 10%, 100% 10vw, 100% calc(100% - 10vw), 0 90%);
+    clip-path: polygon(0 10%, 100% 10vw, 100% calc(100% - 10vw), 0 90%);
 }
 
 #section5 {
@@ -151,6 +166,6 @@ body, html {
     color: rgb(48,50,59);
     background-color: white;
 
-    -webkit-clip-path: polygon(0 10%, 100% 25%, 100% 100%, 0 100%);
-    clip-path: polygon(0 10%, 100% 25%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 10%, 100% 10vw, 100% 100%, 0 100%);
+    clip-path: polygon(0 10%, 100% 10vw, 100% 100%, 0 100%);
 }
