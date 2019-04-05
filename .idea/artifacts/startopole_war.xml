@@ -1,7 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="war" name="startopole:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="SpringMVCAnnotationSecurity.war">
+    <properties id="maven-jee-properties">
+      <options>
+        <module>startopole</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="startopole-1.0.war">
       <element id="artifact" artifact-name="startopole:war exploded" />
     </root>
   </artifact>

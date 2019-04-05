@@ -55,10 +55,27 @@ public class UserInfoDAOImpl extends JdbcDaoSupport implements UserInfoDAO {
 
         String v1 = data.get(0);
         String v2 = data.get(1);
+        String v3 = data.get(2);
+        String v4 = data.get(3);
+        String v5 = data.get(4);
+        String v6 = data.get(5);
+        String v7 = data.get(6);
 
         String sql = "INSERT INTO\n" +
                 "  USERS(USERNAME, PASSWORD, ENABLED)\n" +
-                "VALUES("+v1+","+v2+",0)";
+                "VALUES('"+v1+"','"+v2+"',0)";
+
+        this.getJdbcTemplate().execute(sql);
+
+        sql = "INSERT INTO\n" +
+                "  USER_ROLES(USERNAME, USER_ROLE)\n" +
+                "VALUES('"+v1+"','USER')";
+
+        this.getJdbcTemplate().execute(sql);
+
+        sql = "INSERT INTO\n" +
+                "  FENCERS(USERNAME, EMAIL, NAME, SURNAME, BIR_DATE, PHONE)\n" +
+                "VALUES('"+v1+"','"+v3+"','"+v4+"','"+v5+"','"+v6+"','"+v7+"')";
 
         this.getJdbcTemplate().execute(sql);
     }

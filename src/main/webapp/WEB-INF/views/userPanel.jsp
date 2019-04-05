@@ -8,7 +8,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Panel administratora</title>
+    <title>Panel zawodnika</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
@@ -47,7 +47,7 @@
                         <li><a href="#section4">Galeria</a></li>
                         <li><a href="#section5">Kontakt</a></li>
                         <li><a href="${pageContext.request.contextPath}/logout">Wyloguj się</a></li>
-                        <li class="active"><a href="adminPanel">Panel</a></li>
+                        <li class="active"><a href="userPanel">Panel</a></li>
                     </ul>
                 </div>
             </div>
@@ -59,7 +59,7 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        <h1>Panel administratora</h1>
+        <h1>Panel użytkownika</h1>
     </div>
 </div>
 

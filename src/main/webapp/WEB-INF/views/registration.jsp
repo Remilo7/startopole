@@ -69,13 +69,13 @@
         <div class="card-body">
             <form:form action="addUser" method="post">
                 <div class="form-group">
-                    <form:input type="text" path="userName" class="form-control" placeholder="Nazwa użytkownika" />
-                    <%--<form:input type="email" path="email" class="form-control" placeholder="Adres e-mail" />--%>
-                    <form:input type="password" path="password" class="form-control" placeholder="Hasło" />
-                    <%--<form:input type="text" class="form-control" path="name" placeholder="Imię" />--%>
-                    <%--<form:input type="text" class="form-control" path="surname" placeholder="Nazwisko" />--%>
-                    <%--<form:input type="date" class="form-control" path="reg_date" placeholder="Data urodzenia" />--%>
-                    <%--<form:input type="tel" class="form-control" path="reg_phone" pattern="^[2-9]\d{2}-\d{3}-\d{3}$" placeholder="Telefon kontaktowy" />--%>
+                    <form:input type="text" path="userName" class="form-control" placeholder="Nazwa użytkownika" required="required" />
+                    <form:input type="email" path="email" class="form-control" placeholder="Adres e-mail" required="required" />
+                    <form:input type="password" path="password" class="form-control" placeholder="Hasło" required="required" />
+                    <form:input type="text" class="form-control" path="name" placeholder="Imię" required="required" />
+                    <form:input type="text" class="form-control" path="surname" placeholder="Nazwisko" required="required" />
+                    <form:input type="date" class="form-control" path="bir_date" placeholder="Data urodzenia" required="required" />
+                    <form:input type="tel" class="form-control" path="phone" pattern="^[2-9]\d{2}-\d{3}-\d{3}$" placeholder="Telefon kontaktowy" required="required" />
                 </div>
 
                 <div class="text-center">

@@ -74,8 +74,8 @@
         <c:if test="${param.error == 'true'}">
             <div style="color:red;margin:10px 0px;">
 
-                Login Failed!!!<br />
-                Reason :  ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+                Niepowodzenie logowania<br />
+                Zła nazwa użytkownika lub hasło
 
             </div>
         </c:if>
@@ -85,8 +85,8 @@
             <form action="${pageContext.request.contextPath}/j_spring_security_check" method='POST'>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="username" placeholder="username">
-                    <input type="password" class="form-control" name="password" placeholder="password">
+                    <input type="text" class="form-control" name="username" placeholder="Nazwa użytkownika">
+                    <input type="password" class="form-control" name="password" placeholder="Hasło">
                 </div>
 
                 <div class="form group">

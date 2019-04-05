@@ -34,6 +34,11 @@ public class MainController {
         return "login";
     }
 
+    @RequestMapping(value = "/userPanel", method = RequestMethod.GET)
+    public String userPanel(Model model) {
+        return "userPanel";
+    }
+
     @RequestMapping(value = "/adminPanel", method = RequestMethod.GET)
     public String adminPanel(Model model) {
         return "adminPanel";
@@ -43,17 +48,6 @@ public class MainController {
     public String logoutSuccessfulPage(Model model) {
         model.addAttribute("title", "Logout");
         return "logoutSuccessfulPage";
-    }
-
-    @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
-    public String userInfo(Model model, Principal principal) {
-
-        // After user login successfully.
-        String userName = principal.getName();
-
-        System.out.println("User Name: "+ userName);
-
-        return "userInfoPage";
     }
 
     @RequestMapping(value = "/403", method = RequestMethod.GET)
