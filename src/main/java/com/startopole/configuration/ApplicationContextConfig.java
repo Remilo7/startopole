@@ -3,18 +3,24 @@ package com.startopole.configuration;
 import javax.sql.DataSource;
 
 import com.startopole.dao.UserInfoDAO;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import java.util.Properties;
 
 @Configuration
 @ComponentScan("com.startopole.*")
@@ -62,13 +68,42 @@ public class ApplicationContextConfig {
         return dataSource;
     }
 
-    // Transaction Manager
-    @Autowired
-    @Bean(name = "transactionManager")
-    public DataSourceTransactionManager getTransactionManager(DataSource dataSource) {
-        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
+    @Bean(name = "sessionFactory")
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(getDataSource());
+        sessionFactory.setPackagesToScan("com.startopole.model.Article");
+        sessionFactory.setHibernateProperties(hibernateProperties());
+        sessionFactory.setConfigLocation(new ClassPathResource("hibernate.cfg.xml"));
 
+        return sessionFactory;
+    }
+
+    @Bean(name = "transactionManager")
+    public PlatformTransactionManager hibernateTransactionManager() {
+        HibernateTransactionManager transactionManager
+                = new HibernateTransactionManager();
+        transactionManager.setSessionFactory(sessionFactory().getObject());
         return transactionManager;
     }
+
+    private final Properties hibernateProperties() {
+        Properties hibernateProperties = new Properties();
+        hibernateProperties.setProperty(
+                "hibernate.show_sql", "true");
+        hibernateProperties.setProperty(
+                "hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+
+        return hibernateProperties;
+    }
+
+    // Transaction Manager
+//    @Autowired
+//    @Bean(name = "transactionManager")
+//    public DataSourceTransactionManager getTransactionManager(DataSource dataSource) {
+//        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
+//
+//        return transactionManager;
+//    }
 
 }

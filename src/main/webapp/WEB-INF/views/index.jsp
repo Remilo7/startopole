@@ -52,7 +52,7 @@
                             </c:if>
                             <c:if test="${pageContext.request.userPrincipal.name != null}">
                                 <li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
-                                <li><a href="#">Panel</a></li>
+                                <li><a href="panel">Panel</a></li>
                             </c:if>
                         </ul>
                     </div>
@@ -69,48 +69,23 @@
         <h1>Aktualności</h1>
 
         <div class="row">
+
+        <c:forEach begin="0" end="3" items="${articleList}" var="article">
+
             <div class="col-xs-6 col-md-3">
                 <div class="thumbnail">
-                    <img src="<c:url value="/resources/static/img/news.jpg" />" alt="News 1">
+                    <img src="<c:url value="/resources/static/img/news.jpg" />" alt="image">
                     <div class="caption">
-                        <p>Etizzle shiznit fo shizzle sizzle augue hendrerizzle accumsizzle. Gizzle izzle est. Vivamizzle hizzle dolor, sure vitae, yippiyo id, ultrices izzle, sheezy.</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Więcej</a></p>
+                        <p>${article.title}</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <img src="<c:url value="/resources/static/img/news.jpg" />" alt="News 2">
-                    <div class="caption">
-                        <p>Etizzle shiznit fo shizzle sizzle augue hendrerizzle accumsizzle. Gizzle izzle est. Vivamizzle hizzle dolor, sure vitae, yippiyo id, ultrices izzle, sheezy.</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Więcej</a></p>
-                    </div>
-                </div>
-            </div>
+        </c:forEach>
 
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <img src="<c:url value="/resources/static/img/news.jpg" />" alt="News 3">
-                    <div class="caption">
-                        <p>Etizzle shiznit fo shizzle sizzle augue hendrerizzle accumsizzle. Gizzle izzle est. Vivamizzle hizzle dolor, sure vitae, yippiyo id, ultrices izzle, sheezy.</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Więcej</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <img src="<c:url value="/resources/static/img/news.jpg" />" alt="News 4">
-                    <div class="caption">
-                        <p>Etizzle shiznit fo shizzle sizzle augue hendrerizzle accumsizzle. Gizzle izzle est. Vivamizzle hizzle dolor, sure vitae, yippiyo id, ultrices izzle, sheezy.</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Więcej</a></p>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="text-center">
-            <p><a href="#" class="btn btn-primary" role="button">Poprzednie wpisy</a></p>
+            <p><a href="articles" class="btn btn-primary" role="button">Czytaj dalej</a></p>
         </div>
     </div>
 

@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -8,7 +9,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Panel administratora</title>
+    <title>Zarządzanie aktualnościami</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
@@ -56,55 +57,43 @@
 </div>
 
 
-<div class="user_panel container-fluid">
+<div class="user_panel container-fluid no-padding">
     <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center">
+            <h1>Zarządzaj aktualnościami</h1>
+        </div>
+    </div>
+    <form:form action="article.do" method="post" modelAttribute="article" commandName="article">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 panel_window">
 
-        <div class="col-md-7 panel_window">
-            <ul class="nav nav-tabs">
-                <li><a data-toggle="tab" href="#menu1">Wysłane wiadomości</a></li>
-                <li><a data-toggle="tab" href="#menu2">Lista zawodników</a></li>
-                <li class="active"><a data-toggle="tab" href="#sections">Zarządzaj sekcjami</a></li>
-            </ul>
-
-            <div class="tab-content">
-
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-
-                <div id="sections" class="tab-pane fade in active">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <a href="articles_management"><button class="button">Aktualności</button></a>
-                            <br>
-                            <button class="button">Galeria</button>
-                            <br>
-                            <button class="button">Treningi</button>
-                            <br>
-                            <button class="button">Kontakt</button>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <button class="button">Kadra trenerska</button>
-                            <br>
-                            <button class="button">Zawodnicy</button>
-                            <br>
-                            <button class="button">Historia</button>
-                            <br>
-                            <button class="button">Użytkownicy</button>
-                        </div>
-                    </div>
-                </div>
+                <c:forEach items="${articleList}" var="article">
+                    <form:radiobutton path="id" value="${article.id}"/> ${article.title}
+                    <br>
+                </c:forEach>
 
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 no-padding">
+                <div class="col-md-3 newsButtons">
+                    <button class="addButton pull-left" name="action" value="Redirect">Dodaj</button>
+                </div>
+                <div class="col-md-3 newsButtons">
+                    <button class="editButton pull-left">Edytuj</button>
+                </div>
+                <div class="col-md-3 newsButtons">
+                    <button class="deleteButton pull-right" type="submit" name="action" value="Delete">Usuń</button>
+                </div>
+                <div class="col-md-3 newsButtons">
+                    <button class="backButton pull-right" name="action" value="Back">Wstecz</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </form:form>
 </div>
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>

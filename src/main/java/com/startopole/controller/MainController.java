@@ -1,26 +1,33 @@
 package com.startopole.controller;
 
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
 
-import com.startopole.authentication.MyDBAuthenticationService;
-import com.startopole.dao.UserInfoDAO;
-import com.startopole.dao.impl.UserInfoDAOImpl;
-import com.startopole.model.UserInfo;
+import com.startopole.model.Article;
+import com.startopole.services.ArticleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
 
+    @Autowired
+    ArticleService articleService;
+
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-    public String indexPage(Model model) {
+    public String indexPage(Map<String, Object> map) {
+
+        Article article = new Article();
+        map.put("article", article);
+        map.put("articleList", articleService.getAllArticle());
         return "index";
     }
 
@@ -42,6 +49,25 @@ public class MainController {
     @RequestMapping(value = "/adminPanel", method = RequestMethod.GET)
     public String adminPanel(Model model) {
         return "adminPanel";
+    }
+
+    @RequestMapping(value = "/panel", method = RequestMethod.GET)
+    public String generalPanel(Model model) {
+
+        Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>)
+                SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+
+        GrantedAuthority admin = new SimpleGrantedAuthority("ROLE_ADMIN");
+        GrantedAuthority user = new SimpleGrantedAuthority("ROLE_USER");
+
+        if (authorities.contains(admin))
+            return "adminPanel";
+
+        else if (authorities.contains(user))
+            return "userPanel";
+
+        else
+            return "login";
     }
 
     @RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
