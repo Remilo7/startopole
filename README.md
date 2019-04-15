@@ -1,6 +1,22 @@
 # startopole
-Spring webapp of fencing club
+Spring MVC webapp of fencing club, presenting details of the club, helping admins to manage website and introducing many features for coaches and members of the club.
 
-W celu uruchomienia należy zaimportować projekt do wybranego środowiska IDE, np. IntelliJ. 
-Następnie potrzebny jest serwer Tomcat, na którym zostanie dokonany deploy aplikacji. Po skonfigurowaniu parametrów serwera
-można uruchomić aplikację, która dostępna będzie pod adresem localhosta. 
+## Features
+ - Bootstrap based front-end
+ - Navbar with affix
+ - Presenting sections: news, short history of the club, trainings details, gallery and contact
+ - Articles page
+ - Login and registration system
+ - Connection to the MySQL database
+ - Administrator panel 
+    - Articles management
+      - Adding articles with photos
+      - Editing articles
+      - Deleting articles
+      
+## Running the application locally
+
+You need the Tomcat server. 
+After downloading it, paste the startopole-1.0.war file into the webapps folder inside Tomcat directory. 
+After few seconds, the web application is available on http://localhost:8080/startopole_war/
+
