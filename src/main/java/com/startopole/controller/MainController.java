@@ -4,10 +4,11 @@ import java.security.Principal;
 import java.util.Collection;
 import java.util.Map;
 
-import com.startopole.model.Article;
+import com.startopole.model.viewModel.ArticlesViewModel;
+import com.startopole.model.viewModel.IndexViewModel;
+import com.startopole.services.AdminService;
 import com.startopole.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,18 +23,16 @@ public class MainController {
     @Autowired
     ArticleService articleService;
 
+    @Autowired
+    AdminService adminService;
+
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String indexPage(Map<String, Object> map) {
 
-        Article article = new Article();
-        map.put("article", article);
-        map.put("articleList", articleService.getAllArticle());
+        IndexViewModel indexViewModel = new IndexViewModel();
+        map.put("article",indexViewModel);
+        map.put("articleList",indexViewModel.getAllArticle(articleService.getAllArticle()));
         return "index";
-    }
-
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminPage(Model model) {
-        return "adminPage";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -47,7 +46,17 @@ public class MainController {
     }
 
     @RequestMapping(value = "/adminPanel", method = RequestMethod.GET)
-    public String adminPanel(Model model) {
+    public String adminPanel(Model model, Principal principal, Map<String, Object> map) {
+
+        String temp = " ";
+
+        if (principal != null){
+            temp = principal.getName();
+            temp = adminService.getAdmin(temp).getName()+" "+adminService.getAdmin(temp).getSurname();
+        }
+
+        map.put("admin_name", temp);
+
         return "adminPanel";
     }
 
@@ -61,19 +70,13 @@ public class MainController {
         GrantedAuthority user = new SimpleGrantedAuthority("ROLE_USER");
 
         if (authorities.contains(admin))
-            return "adminPanel";
+            return "redirect:/adminPanel";
 
         else if (authorities.contains(user))
-            return "userPanel";
+            return "redirect:/userPanel";
 
         else
             return "login";
-    }
-
-    @RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
-    public String logoutSuccessfulPage(Model model) {
-        model.addAttribute("title", "Logout");
-        return "logoutSuccessfulPage";
     }
 
     @RequestMapping(value = "/403", method = RequestMethod.GET)

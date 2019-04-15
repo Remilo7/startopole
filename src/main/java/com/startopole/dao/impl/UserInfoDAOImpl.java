@@ -1,13 +1,12 @@
 package com.startopole.dao.impl;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import com.startopole.dao.UserInfoDAO;
 import com.startopole.mapper.UserInfoMapper;
-import com.startopole.model.UserInfo;
+import com.startopole.model.entity.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;

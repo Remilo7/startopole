@@ -1,6 +1,6 @@
 package com.startopole.dao;
 
-import com.startopole.model.UserInfo;
+import com.startopole.model.entity.UserInfo;
 
 import java.util.List;
 

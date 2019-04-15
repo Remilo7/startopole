@@ -57,6 +57,14 @@
 
 
 <div class="user_panel container-fluid">
+
+    <div class="row">
+        <div class="col-md-7">
+            <h1>${admin_name}</h1>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+
     <div class="row">
 
         <div class="col-md-7 panel_window">

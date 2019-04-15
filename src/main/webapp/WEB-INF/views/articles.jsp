@@ -57,7 +57,7 @@
                         </c:if>
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
                             <li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
-                            <li><a href="#">Panel</a></li>
+                            <li><a href="panel">Panel</a></li>
                         </c:if>
                     </ul>
                 </div>
@@ -82,7 +82,7 @@
             </div>
 
             <div class="col-md-6">
-                <img src="<c:url value="/resources/static/img/news.jpg" />" alt="image">
+                <img src="<c:url value="${'/resources/uploaded/img_'.concat(article.id).concat('.jpg')}" />" alt="image">
             </div>
         </div>
         <hr>

@@ -64,13 +64,14 @@
             <h1>Nowy wpis</h1>
         </div>
     </div>
-    <form:form action="article.do" method="post" modelAttribute="article" commandName="article">
+    <form:form action="article.do" method="post" modelAttribute="article" commandName="article" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 newArticle">
 
                 <form:input type="text" class="form-control titleInput" path="title" placeholder="Tytuł" />
                 <form:textarea class="form-control contentInput" path="content" placeholder="Treść..." />
+                <input name="file" id="fileToUpload" type="file" />
 
             </div>
         </div>

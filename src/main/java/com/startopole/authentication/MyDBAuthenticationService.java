@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.startopole.dao.UserInfoDAO;
-import com.startopole.model.UserInfo;
+import com.startopole.model.entity.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

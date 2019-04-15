@@ -1,7 +1,7 @@
 package com.startopole.dao.impl;
 
 import com.startopole.dao.ArticleDAO;
-import com.startopole.model.Article;
+import com.startopole.model.entity.Article;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,6 +31,7 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
     public List getAllArticle() {
-        return session.getCurrentSession().createQuery("FROM Article ").list();
+
+        return session.getCurrentSession().createQuery("FROM Article ORDER BY added_date DESC").list();
     }
 }

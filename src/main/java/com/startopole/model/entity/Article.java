@@ -1,4 +1,4 @@
-package com.startopole.model;
+package com.startopole.model.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -16,7 +16,7 @@ public class Article {
     @Column
     private String content;
 
-    @Column
+    @Column(insertable=false)
     private Timestamp added_date;
 
     public Article(){}

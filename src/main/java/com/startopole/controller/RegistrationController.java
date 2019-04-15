@@ -1,7 +1,7 @@
 package com.startopole.controller;
 
 import com.startopole.dao.UserInfoDAO;
-import com.startopole.model.UserInfo;
+import com.startopole.model.entity.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

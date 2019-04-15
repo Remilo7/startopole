@@ -1,7 +1,7 @@
 package com.startopole.services.impl;
 
 import com.startopole.dao.ArticleDAO;
-import com.startopole.model.Article;
+import com.startopole.model.entity.Article;
 import com.startopole.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

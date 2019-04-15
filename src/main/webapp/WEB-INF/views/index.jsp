@@ -74,7 +74,7 @@
 
             <div class="col-xs-6 col-md-3">
                 <div class="thumbnail">
-                    <img src="<c:url value="/resources/static/img/news.jpg" />" alt="image">
+                    <img src="<c:url value="${'/resources/uploaded/img_'.concat(article.id).concat('.jpg')}" />" alt="image">
                     <div class="caption">
                         <p>${article.title}</p>
                     </div>

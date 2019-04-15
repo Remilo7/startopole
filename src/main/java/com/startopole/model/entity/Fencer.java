@@ -1,27 +1,16 @@
-package com.startopole.model;
+package com.startopole.model.entity;
 
-public class UserInfo {
+public class Fencer {
 
     private String userName;
-    private String password;
     private String email;
     private String name;
     private String surname;
     private String bir_date;
     private String phone;
 
-    public UserInfo()  {
-
-    }
-
-    public UserInfo(String userName, String password) {
+    public Fencer(String userName, String email, String name, String surname, String bir_date, String phone) {
         this.userName = userName;
-        this.password = password;
-    }
-
-    public UserInfo(String userName, String password, String email, String name, String surname, String bir_date, String phone) {
-        this.userName = userName;
-        this.password = password;
         this.email = email;
         this.name = name;
         this.surname = surname;
@@ -35,14 +24,6 @@ public class UserInfo {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {

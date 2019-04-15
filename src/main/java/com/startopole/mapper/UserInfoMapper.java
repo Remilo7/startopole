@@ -1,6 +1,6 @@
 package com.startopole.mapper;
 
-import com.startopole.model.UserInfo;
+import com.startopole.model.entity.UserInfo;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

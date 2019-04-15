@@ -9,7 +9,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Zarządzanie aktualnościami</title>
+    <title>Edytuj wpis</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
@@ -61,35 +61,30 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 text-center">
-            <h1>Zarządzaj aktualnościami</h1>
+            <h1>Edytuj wpis</h1>
         </div>
     </div>
-    <form:form action="article.do" method="post" modelAttribute="article" commandName="article">
+    <form:form action="article.do" method="post" modelAttribute="article" commandName="article" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-6 panel_window">
+            <div class="col-md-6 newArticle">
 
-                <c:forEach items="${articleList}" var="article">
-                    <form:radiobutton path="id" value="${article.id}"/> ${article.title}
-                    <br>
-                </c:forEach>
+                <form:input type="text" class="hidden" path="id" value="${old_article.id}"/>
+                <form:input type="text" class="hidden" path="added_date" value="${old_article.added_date}"/>
+                <form:input type="text" class="form-control titleInput" path="title" value="${old_article.title}"/>
+                <form:textarea class="form-control contentInput" path="content" />
+                <input name="file" id="fileToUpload" type="file" />
 
             </div>
         </div>
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 no-padding">
-                <div class="col-md-3 newsButtons">
-                    <button class="addButton pull-left" name="action" value="Redirect">Dodaj</button>
+                <div class="col-md-6 newsButtons">
+                    <button class="addButton pull-left" name="action" value="Edit">Edytuj</button>
                 </div>
-                <div class="col-md-3 newsButtons">
-                    <button class="editButton pull-left" name="action" value="Rededit">Edytuj</button>
-                </div>
-                <div class="col-md-3 newsButtons">
-                    <button class="deleteButton pull-right" type="submit" name="action" value="Delete">Usuń</button>
-                </div>
-                <div class="col-md-3 newsButtons">
-                    <button class="backButton pull-right" name="action" value="Back">Wstecz</button>
+                <div class="col-md-6 newsButtons">
+                    <button class="backButton pull-right" name="action" value="Back">Wstecz</button></a>
                 </div>
             </div>
         </div>

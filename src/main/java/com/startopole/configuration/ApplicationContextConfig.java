@@ -18,6 +18,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.Properties;
@@ -72,7 +74,7 @@ public class ApplicationContextConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(getDataSource());
-        sessionFactory.setPackagesToScan("com.startopole.model.Article");
+        sessionFactory.setPackagesToScan("com.startopole.model.entity.Article");
         sessionFactory.setHibernateProperties(hibernateProperties());
         sessionFactory.setConfigLocation(new ClassPathResource("hibernate.cfg.xml"));
 
@@ -87,23 +89,25 @@ public class ApplicationContextConfig {
         return transactionManager;
     }
 
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver multipartResolver() {
+        return new CommonsMultipartResolver();
+    }
+
     private final Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty(
                 "hibernate.show_sql", "true");
         hibernateProperties.setProperty(
                 "hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+        hibernateProperties.setProperty(
+                "hibernate.connection.CharSet", "UTF-8");
+        hibernateProperties.setProperty(
+                "hibernate.connection.characterEncoding", "UTF-8");
+        hibernateProperties.setProperty(
+                "hibernate.connection.useUnicode", "true");
 
         return hibernateProperties;
     }
-
-    // Transaction Manager
-//    @Autowired
-//    @Bean(name = "transactionManager")
-//    public DataSourceTransactionManager getTransactionManager(DataSource dataSource) {
-//        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
-//
-//        return transactionManager;
-//    }
 
 }
