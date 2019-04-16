@@ -1,14 +1,22 @@
 package com.startopole.model.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "USERS")
 public class UserInfo {
 
+    @Id
     private String userName;
+
+    @Column
     private String password;
-    private String email;
-    private String name;
-    private String surname;
-    private String bir_date;
-    private String phone;
+
+    @Column
+    private int enabled;
 
     public UserInfo()  {
 
@@ -17,16 +25,6 @@ public class UserInfo {
     public UserInfo(String userName, String password) {
         this.userName = userName;
         this.password = password;
-    }
-
-    public UserInfo(String userName, String password, String email, String name, String surname, String bir_date, String phone) {
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-        this.name = name;
-        this.surname = surname;
-        this.bir_date = bir_date;
-        this.phone = phone;
     }
 
     public String getUserName() {
@@ -45,43 +43,12 @@ public class UserInfo {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public int getEnabled() {
+        return enabled;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getBir_date() {
-        return bir_date;
-    }
-
-    public void setBir_date(String bir_date) {
-        this.bir_date = bir_date;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 }

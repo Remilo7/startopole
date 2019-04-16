@@ -9,5 +9,7 @@
         <mapping class="com.startopole.model.entity.Admin" />
         <mapping class="com.startopole.model.entity.Fencer" />
         <mapping class="com.startopole.model.entity.Coach" />
+        <mapping class="com.startopole.model.entity.UserRole" />
+        <mapping class="com.startopole.model.entity.UserInfo" />
     </session-factory>
 </hibernate-configuration>

@@ -3,8 +3,10 @@ package com.startopole.authentication;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.startopole.dao.UserInfoDAO;
 import com.startopole.model.entity.UserInfo;
+import com.startopole.model.entity.UserRole;
+import com.startopole.services.UserInfoService;
+import com.startopole.services.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,10 +20,14 @@ import org.springframework.stereotype.Service;
 public class MyDBAuthenticationService implements UserDetailsService {
 
     @Autowired
-    private UserInfoDAO userInfoDAO;
+    private UserRoleService userRoleService;
+
+    @Autowired
+    private UserInfoService userInfoService;
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserInfo userInfo = userInfoDAO.findUserInfo(username);
+
+        UserInfo userInfo = userInfoService.findUserInfo(username);
         System.out.println("UserInfo= " + userInfo);
 
         if (userInfo == null) {
@@ -29,13 +35,13 @@ public class MyDBAuthenticationService implements UserDetailsService {
         }
 
         // [USER,ADMIN,..]
-        List<String> roles= userInfoDAO.getUserRoles(username);
+        List<UserRole> roles= userRoleService.getAllUserRoles(username);
 
         List<GrantedAuthority> grantList= new ArrayList<GrantedAuthority>();
         if(roles!= null)  {
-            for(String role: roles)  {
+            for(UserRole role: roles)  {
                 // ROLE_USER, ROLE_ADMIN,..
-                GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role);
+                GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role.getUser_role());
                 grantList.add(authority);
             }
         }
