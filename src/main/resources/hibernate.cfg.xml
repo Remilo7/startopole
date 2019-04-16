@@ -7,5 +7,7 @@
     <session-factory>
         <mapping class="com.startopole.model.entity.Article" />
         <mapping class="com.startopole.model.entity.Admin" />
+        <mapping class="com.startopole.model.entity.Fencer" />
+        <mapping class="com.startopole.model.entity.Coach" />
     </session-factory>
 </hibernate-configuration>

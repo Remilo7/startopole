@@ -8,7 +8,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Panel zawodnika</title>
+    <title>Panel trenera</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
@@ -47,7 +47,7 @@
                         <li><a href="index#section4">Galeria</a></li>
                         <li><a href="index#section5">Kontakt</a></li>
                         <li><a href="${pageContext.request.contextPath}/logout">Wyloguj się</a></li>
-                        <li class="active"><a href="userPanel">Panel</a></li>
+                        <li class="active"><a href="coachPanel">Panel</a></li>
                     </ul>
                 </div>
             </div>
@@ -60,7 +60,7 @@
 
     <div class="row">
         <div class="col-md-7">
-            <h1>${(fencer.name).concat(' ').concat(fencer.surname)}</h1>
+            <h1>${coach_name}</h1>
         </div>
         <div class="col-md-5"></div>
     </div>
@@ -69,9 +69,8 @@
 
         <div class="col-md-7 panel_window">
             <ul class="nav nav-tabs">
-                <li><a data-toggle="tab" href="#menu1">Aktualności</a></li>
-                <li><a data-toggle="tab" href="#menu2">Przypomnienia</a></li>
-                <li class="active"><a data-toggle="tab" href="#menu3">Dane</a></li>
+                <li><a data-toggle="tab" href="#menu1">Wysłane wiadomości</a></li>
+                <li class="active"><a data-toggle="tab" href="#menu2">Lista zawodników</a></li>
             </ul>
 
             <div class="tab-content">
@@ -81,13 +80,8 @@
                     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
 
-                <div id="menu2" class="tab-pane fade">
+                <div id="menu2" class="tab-pane fade in active">
                     <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-
-                <div id="menu3" class="tab-pane fade in active">
-                    <h3>Menu 3</h3>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                 </div>
 

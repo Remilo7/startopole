@@ -1,13 +1,35 @@
 package com.startopole.model.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "FENCERS")
 public class Fencer {
 
+    @Id
+
+    @Column
     private String userName;
+
+    @Column
     private String email;
+
+    @Column
     private String name;
+
+    @Column
     private String surname;
+
+    @Column
     private String bir_date;
+
+    @Column
     private String phone;
+
+    public Fencer(){ }
 
     public Fencer(String userName, String email, String name, String surname, String bir_date, String phone) {
         this.userName = userName;

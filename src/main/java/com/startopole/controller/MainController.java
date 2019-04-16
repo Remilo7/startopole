@@ -4,9 +4,7 @@ import java.security.Principal;
 import java.util.Collection;
 import java.util.Map;
 
-import com.startopole.model.viewModel.ArticlesViewModel;
 import com.startopole.model.viewModel.IndexViewModel;
-import com.startopole.services.AdminService;
 import com.startopole.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,9 +21,6 @@ public class MainController {
     @Autowired
     ArticleService articleService;
 
-    @Autowired
-    AdminService adminService;
-
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String indexPage(Map<String, Object> map) {
 
@@ -40,26 +35,6 @@ public class MainController {
         return "login";
     }
 
-    @RequestMapping(value = "/userPanel", method = RequestMethod.GET)
-    public String userPanel(Model model) {
-        return "userPanel";
-    }
-
-    @RequestMapping(value = "/adminPanel", method = RequestMethod.GET)
-    public String adminPanel(Model model, Principal principal, Map<String, Object> map) {
-
-        String temp = " ";
-
-        if (principal != null){
-            temp = principal.getName();
-            temp = adminService.getAdmin(temp).getName()+" "+adminService.getAdmin(temp).getSurname();
-        }
-
-        map.put("admin_name", temp);
-
-        return "adminPanel";
-    }
-
     @RequestMapping(value = "/panel", method = RequestMethod.GET)
     public String generalPanel(Model model) {
 
@@ -68,12 +43,16 @@ public class MainController {
 
         GrantedAuthority admin = new SimpleGrantedAuthority("ROLE_ADMIN");
         GrantedAuthority user = new SimpleGrantedAuthority("ROLE_USER");
+        GrantedAuthority coach = new SimpleGrantedAuthority("ROLE_COACH");
 
         if (authorities.contains(admin))
             return "redirect:/adminPanel";
 
         else if (authorities.contains(user))
             return "redirect:/userPanel";
+
+        else if (authorities.contains(coach))
+            return "redirect:/coachPanel";
 
         else
             return "login";
