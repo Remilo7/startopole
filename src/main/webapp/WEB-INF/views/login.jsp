@@ -18,7 +18,7 @@
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
 </head>
-<body>
+<body onresize="stickyUpdate()">
 
 <!-- Menu strony -->
 
@@ -119,11 +119,28 @@
 
 <!-- Navbar Affix -->
 <script type="text/javascript">
-    $('#nav').affix({
-        offset: {
-            top: $('#bg_div').height()
+    window.onscroll = function() {myFunction()};
+
+    var header = document.getElementById("nav");
+    var sticky = header.offsetTop;
+    var sticked = false;
+    function myFunction() {
+
+        if (window.pageYOffset > header.offsetTop) {
+            header.classList.add("sticky");
+            sticked = true;
         }
-    });
+        if (window.pageYOffset < sticky && sticked){
+            header.classList.remove("sticky");
+            sticked = false;
+        }
+    }
+    function stickyUpdate() {
+        console.log(sticky);
+        header.classList.remove("sticky");
+        sticky = header.offsetTop;
+        myFunction()
+    }
 </script>
 
 </body>

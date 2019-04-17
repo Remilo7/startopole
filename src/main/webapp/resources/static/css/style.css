@@ -11,6 +11,22 @@ body, html {
 
 /* Główny Navbar */
 
+#nav {
+    z-index: 99;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.sticky {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: auto !important;
+    width: 100%;
+}
+
 .navbar {
     margin-bottom: 0px;
 
@@ -75,13 +91,6 @@ body, html {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7', GradientType=0 );
 }
 
-#nav.affix {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index:10;
-}
-
 .no-padding{
     padding-left:0;
     padding-right:0;
@@ -95,7 +104,7 @@ body, html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 500px;
+    height: 100%;
 }
 
 /* Kolejne sekcje strony */
