@@ -13,6 +13,17 @@ Spring MVC webapp of fencing club, presenting details of the club, helping admin
       - Adding articles with photos
       - Editing articles
       - Deleting articles
+    - Users management
+      - Activating accounts
+      - Deactivating accounts
+    - Image galleries management
+      - Adding new galleries 
+      - Editing galleries
+      - Deleting galleries
+    - Info-sections management
+      - Club history section
+      - Trainings section
+      - Coaches section
       
 ## Running the application locally
 
