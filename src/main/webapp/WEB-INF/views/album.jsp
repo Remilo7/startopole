@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -8,12 +9,13 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Panel administratora</title>
+    <title>Zarządzanie galeriami zdjęć</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/buttons.css" />" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
 
@@ -47,10 +49,15 @@
                             </ul>
                         </li>
                         <li><a href="index#section3">Treningi</a></li>
-                        <li><a href="index#section4">Galeria</a></li>
+                        <li class="active"><a href="index#section4">Galeria</a></li>
                         <li><a href="index#section5">Kontakt</a></li>
-                        <li><a href="${pageContext.request.contextPath}/logout">Wyloguj się</a></li>
-                        <li class="active"><a href="adminPanel">Panel</a></li>
+                        <c:if test="${pageContext.request.userPrincipal.name == null}">
+                            <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+                        </c:if>
+                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                            <li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
+                            <li><a href="panel">Panel</a></li>
+                        </c:if>
                     </ul>
                 </div>
             </div>
@@ -60,61 +67,34 @@
 
 <!-- Treść strony -->
 
-<div class="user_panel container-fluid">
-
+<div class="user_panel container-fluid no-padding">
     <div class="row">
-        <div class="col-md-7">
-            <h1>${admin_name}</h1>
+        <div class="col-md-2"></div>
+        <div class="col-md-8 text-center">
+            <h1 class="news">${gallery.name}</h1>
+
+            <c:forEach begin="0" end="${gallery.amount-1}" varStatus="loop">
+                <div class="col-lg-3 col-sm-4 col-xs-6">
+                    <a href="#"><img class="thumbnail img-responsive" src="<c:url value="${'/resources/uploaded/galleries/gallery'.concat(gallery.id).concat('/img_').concat(loop.index).concat('.jpg')}" />" alt="image"></a>
+                </div>
+            </c:forEach>
+
         </div>
-        <div class="col-md-5"></div>
     </div>
+</div>
 
-    <div class="row">
-
-        <div class="col-md-7 panel_window">
-            <ul class="nav nav-tabs">
-                <li><a data-toggle="tab" href="#menu1">Wysłane wiadomości</a></li>
-                <li><a data-toggle="tab" href="#menu2">Lista zawodników</a></li>
-                <li class="active"><a data-toggle="tab" href="#sections">Zarządzaj sekcjami</a></li>
-            </ul>
-
-            <div class="tab-content">
-
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-
-                <div id="sections" class="tab-pane fade in active">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <a href="articles_management"><button class="button">Aktualności</button></a>
-                            <br>
-                            <a href="galleries_management"><button class="button">Galeria</button></a>
-                            <br>
-                            <a href="trainings_management"><button class="button">Treningi</button></a>
-                            <br>
-                            <button class="button">Kontakt</button>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <a href="coaches_management"><button class="button">Kadra trenerska</button></a>
-                            <br>
-                            <button class="button">Zawodnicy</button>
-                            <br>
-                            <a href="history_management"><button class="button">Historia</button></a>
-                            <br>
-                            <a href="users_management"><button class="button">Użytkownicy</button></a>
-                        </div>
-                    </div>
-                </div>
+<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
 
             </div>
-        </div>
+            <div class="modal-footer">
+                <button class="btn btn-red btn-border" data-dismiss="modal">Zamknij</button>
+            </div>
         </div>
     </div>
 </div>
@@ -159,6 +139,18 @@
             scrollTop: $(hash).offset().top
         }, 300, function(){
             window.location.hash = hash;
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('.thumbnail').click(function(){
+            $('.modal-body').empty();
+            var title = $(this).parent('a').attr("title");
+            $('.modal-title').html(title);
+            $($(this).parents('div').html()).appendTo('.modal-body');
+            $('#myModal').modal({show:true});
         });
     });
 </script>

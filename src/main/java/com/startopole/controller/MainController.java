@@ -4,8 +4,12 @@ import java.security.Principal;
 import java.util.Collection;
 import java.util.Map;
 
+import com.startopole.model.entity.Gallery;
+import com.startopole.model.entity.Section;
 import com.startopole.model.viewModel.IndexViewModel;
 import com.startopole.services.ArticleService;
+import com.startopole.services.GalleryService;
+import com.startopole.services.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,13 +25,37 @@ public class MainController {
     @Autowired
     ArticleService articleService;
 
+    @Autowired
+    GalleryService galleryService;
+
+    @Autowired
+    SectionService sectionService;
+
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String indexPage(Map<String, Object> map) {
 
         IndexViewModel indexViewModel = new IndexViewModel();
+        Gallery gallery = new Gallery();
+        Section section = new Section();
+
         map.put("article",indexViewModel);
         map.put("articleList",indexViewModel.getAllArticle(articleService.getAllArticle()));
+        map.put("gallery", gallery);
+        map.put("galleryList", galleryService.getAllGalleries());
+        map.put("section", section);
+        map.put("historySectionList", sectionService.getAllSections("HISTORIA"));
+        map.put("trainingSectionList", sectionService.getAllSections("TRENINGI"));
         return "index";
+    }
+
+    @RequestMapping(value = "/coaches", method = RequestMethod.GET)
+    public String coaches(Map<String, Object> map) {
+
+        Section section = new Section();
+        map.put("section", section);
+        map.put("coachesSectionList", sectionService.getAllSections("TRENERZY"));
+
+        return "coaches";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

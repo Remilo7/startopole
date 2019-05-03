@@ -11,5 +11,7 @@
         <mapping class="com.startopole.model.entity.Coach" />
         <mapping class="com.startopole.model.entity.UserRole" />
         <mapping class="com.startopole.model.entity.UserInfo" />
+        <mapping class="com.startopole.model.entity.Gallery" />
+        <mapping class="com.startopole.model.entity.Section" />
     </session-factory>
 </hibernate-configuration>

@@ -29,15 +29,6 @@ public class ArticleController {
     private Article articleToEdit;
     private static final String UPLOAD_DIRECTORY ="/resources/uploaded";
 
-    @RequestMapping("/news")
-    public String setupForm(Map<String, Object> map){
-
-        Article article = new Article();
-        map.put("article", article);
-        map.put("articleList", articleService.getAllArticle());
-        return "news";
-    }
-
     @RequestMapping("/articles")
     public String articles(Map<String, Object> map){
 
@@ -79,7 +70,7 @@ public class ArticleController {
     }
 
     @RequestMapping(value="/article.do", method= RequestMethod.POST)
-    public String doActions(@ModelAttribute Article article, BindingResult result, @RequestParam String action, Map<String, Object> map,
+    public String doActions(@ModelAttribute Article article, @RequestParam String action, Map<String, Object> map,
                             @RequestParam(required = false) CommonsMultipartFile file, HttpSession session) throws Exception {
 
         Article articleResult = new Article();
@@ -111,20 +102,19 @@ public class ArticleController {
             boolean deleted = temp_file.delete();
 
         } else if ("back".equals(action.toLowerCase())) {
-            return "adminPanel";
+            return "redirect:/adminPanel";
 
         } else if ("redirect".equals(action.toLowerCase())) {
-            return "newArticle";
+            return "redirect:/newArticle";
 
         } else if ("rededit".equals(action.toLowerCase())) {
             articleToEdit = articleService.getArticle(article.getId());
             return "redirect:/editArticle";
-
         }
 
         map.put("article", articleResult);
         map.put("articleList", articleService.getAllArticle());
-        return "articles_management";
+        return "redirect:/articles_management";
     }
 
     private void fileUpload(CommonsMultipartFile file, HttpSession session, int fileid) throws Exception {

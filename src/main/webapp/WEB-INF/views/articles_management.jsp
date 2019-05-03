@@ -13,15 +13,19 @@
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/buttons.css" />" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
 
-<div class="container-fluid" id="bg_div">
-    <div class="row">
-        <div class="col-md-12 no-padding"></div>
+<a href="index">
+    <div class="container-fluid" id="bg_div">
+        <div class="row">
+            <div class="col-md-12 no-padding"></div>
+        </div>
     </div>
-</div>
+</a>
 
 <div id="nav">
     <nav class="navbar navbar-inverse">
@@ -40,7 +44,7 @@
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">O klubie<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="index#section2">Historia</a></li>
-                                <li><a href="index#">Kadra trenerska</a></li>
+                                <li><a href="coaches">Kadra trenerska</a></li>
                                 <li><a href="index#">Zawodnicy</a></li>
                             </ul>
                         </li>
@@ -56,6 +60,7 @@
     </nav>
 </div>
 
+<!-- Treść strony -->
 
 <div class="user_panel container-fluid no-padding">
     <div class="row">
@@ -69,10 +74,25 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 panel_window">
 
-                <c:forEach items="${articleList}" var="article">
-                    <form:radiobutton path="id" value="${article.id}"/> ${article.title}
-                    <br>
-                </c:forEach>
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th />
+                        <th>Tytuł artykułu</th>
+                        <th>Data dodania</th>
+                    </tr>
+                    </thead>
+
+                    <c:forEach items="${articleList}" var="article">
+                        <tbody>
+                        <tr>
+                            <td><form:radiobutton cssClass="formradio" path="id" value="${article.id}"/></td>
+                            <td>${article.title}</td>
+                            <td>${article.added_date}</td>
+                        </tr>
+                        </tbody>
+                    </c:forEach>
+                </table>
 
             </div>
         </div>
@@ -80,16 +100,16 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 no-padding">
                 <div class="col-md-3 newsButtons">
-                    <button class="addButton pull-left" name="action" value="Redirect">Dodaj</button>
+                    <button class="btn btn-navy btn-border" name="action" value="Back">Wstecz</button>
                 </div>
                 <div class="col-md-3 newsButtons">
-                    <button class="editButton pull-left" name="action" value="Rededit">Edytuj</button>
+                    <button class="btn btn-red btn-border" type="submit" name="action" value="Delete">Usuń</button>
                 </div>
                 <div class="col-md-3 newsButtons">
-                    <button class="deleteButton pull-right" type="submit" name="action" value="Delete">Usuń</button>
+                    <button class="btn btn-blue btn-border" name="action" value="Rededit">Edytuj</button>
                 </div>
                 <div class="col-md-3 newsButtons">
-                    <button class="backButton pull-right" name="action" value="Back">Wstecz</button>
+                    <button class="btn btn-green btn-border" name="action" value="Redirect">Dodaj</button>
                 </div>
             </div>
         </div>

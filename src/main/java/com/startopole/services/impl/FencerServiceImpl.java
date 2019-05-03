@@ -35,6 +35,7 @@ public class FencerServiceImpl implements FencerService {
         return fencerDAO.getFencer(username);
     }
 
+    @Transactional
     public List getAllFencer(){
         return fencerDAO.getAllFencer();
     }

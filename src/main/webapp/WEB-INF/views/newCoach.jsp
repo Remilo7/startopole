@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -8,12 +9,13 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Panel administratora</title>
+    <title>Nowy akapit</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/buttons.css" />" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
 
@@ -60,63 +62,37 @@
 
 <!-- Treść strony -->
 
-<div class="user_panel container-fluid">
 
+<div class="user_panel container-fluid no-padding">
     <div class="row">
-        <div class="col-md-7">
-            <h1>${admin_name}</h1>
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center">
+            <h1>Nowy akapit</h1>
         </div>
-        <div class="col-md-5"></div>
     </div>
+    <form:form action="coaches.do" method="post" modelAttribute="section" commandName="section" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 newArticle">
 
-    <div class="row">
-
-        <div class="col-md-7 panel_window">
-            <ul class="nav nav-tabs">
-                <li><a data-toggle="tab" href="#menu1">Wysłane wiadomości</a></li>
-                <li><a data-toggle="tab" href="#menu2">Lista zawodników</a></li>
-                <li class="active"><a data-toggle="tab" href="#sections">Zarządzaj sekcjami</a></li>
-            </ul>
-
-            <div class="tab-content">
-
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-
-                <div id="sections" class="tab-pane fade in active">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <a href="articles_management"><button class="button">Aktualności</button></a>
-                            <br>
-                            <a href="galleries_management"><button class="button">Galeria</button></a>
-                            <br>
-                            <a href="trainings_management"><button class="button">Treningi</button></a>
-                            <br>
-                            <button class="button">Kontakt</button>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <a href="coaches_management"><button class="button">Kadra trenerska</button></a>
-                            <br>
-                            <button class="button">Zawodnicy</button>
-                            <br>
-                            <a href="history_management"><button class="button">Historia</button></a>
-                            <br>
-                            <a href="users_management"><button class="button">Użytkownicy</button></a>
-                        </div>
-                    </div>
-                </div>
+                <form:input type="text" class="form-control titleInput" path="header" placeholder="Nagłówek akapitu" />
+                <form:textarea class="form-control contentInput" path="content" placeholder="Treść..." />
+                <input name="file" id="fileToUpload" type="file" />
 
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 no-padding">
+                <div class="col-md-6 newsButtons">
+                    <button class="btn btn-navy btn-border pull-left" name="action" value="Back">Wstecz</button></a>
+                </div>
+                <div class="col-md-6 newsButtons">
+                    <button class="btn btn-green btn-border pull-right" name="action" value="Add">Dodaj</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </form:form>
 </div>
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>

@@ -9,6 +9,10 @@ body, html {
     height: 100%;
 }
 
+p {
+    font-size: 110%;
+}
+
 /* Główny Navbar */
 
 #nav {
@@ -96,15 +100,15 @@ body, html {
     padding-right:0;
 }
 
-/* Obrazek startowy */
+/* Miniatury zdjęć z podpisami */
 
-#bg_div {
-    background: url('../img/bg.jpg') no-repeat center top;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%;
+.caption p, a {
+    text-align: center;
+}
+
+.caption a {
+    margin: 0 auto;
+    display: block;
 }
 
 /* Kolejne sekcje strony */
@@ -148,7 +152,8 @@ body, html {
 
 #section3 {
     padding-top:200px;
-    height:700px;
+    padding-bottom: 200px;
+    min-height: 100%;
     color: rgb(48,50,59);
     background-color: white;
 

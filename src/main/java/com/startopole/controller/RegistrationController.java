@@ -2,11 +2,9 @@ package com.startopole.controller;
 
 import com.startopole.model.entity.Fencer;
 import com.startopole.model.entity.UserInfo;
-import com.startopole.model.entity.UserRole;
 import com.startopole.model.viewModel.RegistrationViewModel;
 import com.startopole.services.FencerService;
 import com.startopole.services.UserInfoService;
-import com.startopole.services.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,9 +19,6 @@ public class RegistrationController {
     UserInfoService userInfoService;
 
     @Autowired
-    UserRoleService userRoleService;
-
-    @Autowired
     FencerService fencerService;
 
     @RequestMapping("/registration")
@@ -36,11 +31,9 @@ public class RegistrationController {
     public ModelAndView addUser(@ModelAttribute("registrationviewmodel") RegistrationViewModel user){
 
         UserInfo tempUserInfo = new UserInfo(user.getUserName(), user.getPassword());
-        UserRole tempUserRole = new UserRole(user.getUserName(), "USER");
         Fencer tempFencer = new Fencer(user.getUserName(), user.getEmail(), user.getName(), user.getSurname(), user.getBir_date(), user.getPhone());
 
         userInfoService.add(tempUserInfo);
-        userRoleService.add(tempUserRole);
         fencerService.add(tempFencer);
 
         //return new ModelAndView("empform","command",emp);//will display object data

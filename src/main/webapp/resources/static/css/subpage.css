@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-body, html {
-    background: url('../img/opole.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-    position: relative;
-    height: 100%;
-}
-
 /* Główny Navbar */
 
 #nav {
@@ -20,82 +9,6 @@ body, html {
     bottom: 0;
     right: 0;
     left: 0;
-}
-
-.sticky {
-    position: fixed !important;
-    top: 0 !important;
-    bottom: auto !important;
-    width: 100%;
-}
-
-.navbar {
-    margin-bottom: 0px;
-
-    background: rgba(76,76,76,1);
-    background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(0%, rgba(44,44,44,1)), color-stop(0%, rgba(0,0,0,1)), color-stop(60%, rgba(17,17,17,0.94)), color-stop(91%, rgba(28,28,28,0.91)), color-stop(100%, rgba(19,19,19,0.9)));
-    background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
-
-    -webkit-box-shadow: 0px 9px 19px 7px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 9px 19px 7px rgba(0,0,0,0.75);
-    box-shadow: 0px 9px 19px 7px rgba(0,0,0,0.75);
-
-    border-style: none;
-    border-radius: 0;
-}
-
-.navbar-nav{
-    float:none;
-    margin: 0 auto;
-    display: table;
-    table-layout: fixed;
-}
-
-.navbar ul {
-    font-size: 125%;
-}
-
-/* Kolor tekstu itemów Navbara */
-
-.navbar-nav > li > a {
-    color: rgba(255,255,255,0.8) !important;
-}
-
-.navbar-nav > li > a:hover {
-    color: rgba(255,255,255,1) !important;
-}
-
-.navbar .navbar-collapse {
-    text-align: center;
-}
-
-/* Kolor aktywnego itemu Navbara */
-
-.navbar-nav > .active > a {
-    color: rgba(255,255,255,1) !important;
-}
-
-/* Tło rozwijanej części */
-
-.dropdown-menu {
-    background: rgba(255,255,255,0.8);
-    background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0.8)), color-stop(0%, rgba(246,246,246,0.8)), color-stop(100%, rgba(247,247,247,0.34)));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: -o-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: -ms-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7', GradientType=0 );
-}
-
-.no-padding{
-    padding-left:0;
-    padding-right:0;
 }
 
 /* Obrazek startowy */
@@ -181,9 +94,9 @@ input:focus{
     margin-bottom: 20px;
 }
 
-/* Aktualności */
+/* Aktualności, Galeria */
 
-.news{
+.news, .gallery{
     min-height:100%;
     color: rgb(48,50,59);
     background-color: white;
@@ -192,7 +105,7 @@ input:focus{
     padding-right: 15px;
 }
 
-.news h1 {
+.news, .gallery h1 {
     margin-bottom: 50px;
 }
 
@@ -247,86 +160,12 @@ input:focus{
 .newsButtons button {
     border: none;
     color: black;
-    padding: 8px 4px;
+    padding: 6px 2px;
     margin-top: 30px;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
     width: 100px;
-}
-
-.addButton {
-    background: rgba(210, 255, 82, 1);
-    background: -moz-linear-gradient(top, rgba(210, 255, 82, 1) 0%, rgba(145, 232, 66, 1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210, 255, 82, 1)), color-stop(100%, rgba(145, 232, 66, 1)));
-    background: -webkit-linear-gradient(top, rgba(210, 255, 82, 1) 0%, rgba(145, 232, 66, 1) 100%);
-    background: -o-linear-gradient(top, rgba(210, 255, 82, 1) 0%, rgba(145, 232, 66, 1) 100%);
-    background: -ms-linear-gradient(top, rgba(210, 255, 82, 1) 0%, rgba(145, 232, 66, 1) 100%);
-    background: linear-gradient(to bottom, rgba(210, 255, 82, 1) 0%, rgba(145, 232, 66, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0);
-}
-
-.addButton:hover{
-    background: rgba(210,255,82,1);
-    background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,0.5) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,0.5)));
-    background: -webkit-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,0.5) 100%);
-    background: -o-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,0.5) 100%);
-    background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(145,232,66,0.5) 100%);
-    background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(145,232,66,0.5) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
-}
-
-.editButton{
-    background: rgba(179,220,237,1);
-    background: -moz-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(41,184,229,1)), color-stop(100%, rgba(188,224,238,1)));
-    background: -webkit-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
-    background: -o-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
-    background: -ms-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
-    background: linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=0 );
-}
-
-.editButton:hover{
-    background: rgba(179,220,237,1);
-    background: -moz-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,0.75) 50%, rgba(188,224,238,0.49) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(41,184,229,0.75)), color-stop(100%, rgba(188,224,238,0.49)));
-    background: -webkit-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,0.75) 50%, rgba(188,224,238,0.49) 100%);
-    background: -o-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,0.75) 50%, rgba(188,224,238,0.49) 100%);
-    background: -ms-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,0.75) 50%, rgba(188,224,238,0.49) 100%);
-    background: linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(41,184,229,0.75) 50%, rgba(188,224,238,0.49) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=0 );
-}
-
-.deleteButton{
-    background: rgba(239,197,202,1);
-    background: -moz-linear-gradient(top, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 50%, rgba(186,39,55,1) 51%, rgba(241,142,153,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(239,197,202,1)), color-stop(50%, rgba(210,75,90,1)), color-stop(51%, rgba(186,39,55,1)), color-stop(100%, rgba(241,142,153,1)));
-    background: -webkit-linear-gradient(top, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 50%, rgba(186,39,55,1) 51%, rgba(241,142,153,1) 100%);
-    background: -o-linear-gradient(top, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 50%, rgba(186,39,55,1) 51%, rgba(241,142,153,1) 100%);
-    background: -ms-linear-gradient(top, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 50%, rgba(186,39,55,1) 51%, rgba(241,142,153,1) 100%);
-    background: linear-gradient(to bottom, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 50%, rgba(186,39,55,1) 51%, rgba(241,142,153,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc5ca', endColorstr='#f18e99', GradientType=0 );
-}
-
-.deleteButton:hover{
-    background: rgba(239,197,202,1);
-    background: -moz-linear-gradient(top, rgba(239,197,202,1) 0%, rgba(210,75,90,0.75) 50%, rgba(186,39,55,0.75) 51%, rgba(241,142,153,0.5) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(239,197,202,1)), color-stop(50%, rgba(210,75,90,0.75)), color-stop(51%, rgba(186,39,55,0.75)), color-stop(100%, rgba(241,142,153,0.5)));
-    background: -webkit-linear-gradient(top, rgba(239,197,202,1) 0%, rgba(210,75,90,0.75) 50%, rgba(186,39,55,0.75) 51%, rgba(241,142,153,0.5) 100%);
-    background: -o-linear-gradient(top, rgba(239,197,202,1) 0%, rgba(210,75,90,0.75) 50%, rgba(186,39,55,0.75) 51%, rgba(241,142,153,0.5) 100%);
-    background: -ms-linear-gradient(top, rgba(239,197,202,1) 0%, rgba(210,75,90,0.75) 50%, rgba(186,39,55,0.75) 51%, rgba(241,142,153,0.5) 100%);
-    background: linear-gradient(to bottom, rgba(239,197,202,1) 0%, rgba(210,75,90,0.75) 50%, rgba(186,39,55,0.75) 51%, rgba(241,142,153,0.5) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc5ca', endColorstr='#f18e99', GradientType=0 );
-}
-
-.backButton{
-    background-color: #ddd;
-}
-
-.backButton:hover{
-    background-color: rgba(235, 235, 235, 0.9);
 }
 
 /* Nowy wpis */
@@ -343,4 +182,11 @@ input:focus{
 
 .contentInput {
     height: 400px !important;
+}
+
+/* Galeria zdjęć */
+
+.modal-dialog {
+    height: 75%;
+    max-height: 75vh;
 }

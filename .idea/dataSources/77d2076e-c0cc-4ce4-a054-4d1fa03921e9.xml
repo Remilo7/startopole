@@ -1101,196 +1101,259 @@
     </table>
     <table id="276" parent="3" name="COACHES"/>
     <table id="277" parent="3" name="FENCERS"/>
-    <table id="278" parent="3" name="USERS"/>
-    <table id="279" parent="3" name="USER_ROLES"/>
-    <column id="280" parent="274" name="username">
+    <table id="278" parent="3" name="GALLERIES">
+      <Collation>utf8_polish_ci</Collation>
+    </table>
+    <table id="279" parent="3" name="SECTIONS">
+      <Collation>utf8_polish_ci</Collation>
+    </table>
+    <table id="280" parent="3" name="USERS"/>
+    <table id="281" parent="3" name="USER_ROLES"/>
+    <column id="282" parent="274" name="username">
       <Position>1</Position>
       <DataType>varchar(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="274" name="name">
+    <column id="283" parent="274" name="name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="274" name="surname">
+    <column id="284" parent="274" name="surname">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="283" parent="274" name="PRIMARY">
+    <key id="285" parent="274" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="284" parent="274" name="ADMINS_FK">
+    <foreign-key id="286" parent="274" name="ADMINS_FK">
       <ColNames>username</ColNames>
       <RefSchemaName>wBpzMP6GIB</RefSchemaName>
       <RefTableName>USERS</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="285" parent="275" name="id">
+    <column id="287" parent="275" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="275" name="title">
+    <column id="288" parent="275" name="title">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="275" name="content">
+    <column id="289" parent="275" name="content">
       <Position>3</Position>
       <DataType>varchar(2000)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="275" name="added_date">
+    <column id="290" parent="275" name="added_date">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="289" parent="275" name="PRIMARY">
+    <key id="291" parent="275" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="290" parent="276" name="username">
+    <column id="292" parent="276" name="username">
       <Position>1</Position>
       <DataType>varchar(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="276" name="name">
+    <column id="293" parent="276" name="name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="276" name="surname">
+    <column id="294" parent="276" name="surname">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="293" parent="276" name="PRIMARY">
+    <key id="295" parent="276" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="294" parent="276" name="COACHES_FK">
+    <foreign-key id="296" parent="276" name="COACHES_FK">
       <ColNames>username</ColNames>
       <RefSchemaName>wBpzMP6GIB</RefSchemaName>
       <RefTableName>USERS</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="295" parent="277" name="USERNAME">
+    <column id="297" parent="277" name="USERNAME">
       <Position>1</Position>
       <DataType>varchar(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="277" name="EMAIL">
+    <column id="298" parent="277" name="EMAIL">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="277" name="NAME">
+    <column id="299" parent="277" name="NAME">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="277" name="SURNAME">
+    <column id="300" parent="277" name="SURNAME">
       <Position>4</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="277" name="BIR_DATE">
+    <column id="301" parent="277" name="BIR_DATE">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="277" name="PHONE">
+    <column id="302" parent="277" name="PHONE">
       <Position>6</Position>
       <DataType>varchar(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="301" parent="277" name="PRIMARY">
+    <key id="303" parent="277" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USERNAME</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="302" parent="277" name="FENCERS_FK">
+    <foreign-key id="304" parent="277" name="FENCERS_FK">
       <ColNames>USERNAME</ColNames>
       <RefSchemaName>wBpzMP6GIB</RefSchemaName>
       <RefTableName>USERS</RefTableName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="303" parent="278" name="USERNAME">
-      <Position>1</Position>
-      <DataType>varchar(36)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="304" parent="278" name="PASSWORD">
-      <Position>2</Position>
-      <DataType>varchar(36)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="305" parent="278" name="ENABLED">
-      <Position>3</Position>
-      <DataType>smallint(6)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="306" parent="278" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>USERNAME</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="307" parent="279" name="ROLE_ID">
+    <column id="305" parent="278" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="279" name="USERNAME">
+    <column id="306" parent="278" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="307" parent="278" name="amount">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="308" parent="278" name="added_date">
+      <Position>4</Position>
+      <DataType>timestamp|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="309" parent="278" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="310" parent="279" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="311" parent="279" name="header">
+      <Position>2</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="312" parent="279" name="content">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="313" parent="279" name="section_name">
+      <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="314" parent="279" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="315" parent="280" name="USERNAME">
+      <Position>1</Position>
+      <DataType>varchar(36)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="316" parent="280" name="PASSWORD">
       <Position>2</Position>
       <DataType>varchar(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="279" name="USER_ROLE">
+    <column id="317" parent="280" name="ENABLED">
+      <Position>3</Position>
+      <DataType>smallint(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="318" parent="280" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USERNAME</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="319" parent="281" name="ROLE_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="320" parent="281" name="USERNAME">
+      <Position>2</Position>
+      <DataType>varchar(36)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="321" parent="281" name="USER_ROLE">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="310" parent="279" name="USER_ROLE_UK">
+    <index id="322" parent="281" name="USER_ROLE_UK">
       <ColNames>USERNAME
 USER_ROLE</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="311" parent="279" name="PRIMARY">
+    <key id="323" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ROLE_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="312" parent="279" name="USER_ROLE_UK">
+    <key id="324" parent="281" name="USER_ROLE_UK">
       <ColNames>USERNAME
 USER_ROLE</ColNames>
       <UnderlyingIndexName>USER_ROLE_UK</UnderlyingIndexName>
