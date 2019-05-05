@@ -48,16 +48,6 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping(value = "/coaches", method = RequestMethod.GET)
-    public String coaches(Map<String, Object> map) {
-
-        Section section = new Section();
-        map.put("section", section);
-        map.put("coachesSectionList", sectionService.getAllSections("TRENERZY"));
-
-        return "coaches";
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model ) {
         return "login";

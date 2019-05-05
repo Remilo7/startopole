@@ -27,6 +27,16 @@ public class CoachController {
 
     private Section sectionToEdit;
 
+    @RequestMapping(value = "/coaches", method = RequestMethod.GET)
+    public String coaches(Map<String, Object> map) {
+
+        Section section = new Section();
+        map.put("section", section);
+        map.put("coachesSectionList", sectionService.getAllSections("TRENERZY"));
+
+        return "coaches";
+    }
+
     @RequestMapping(value = {"/coaches_management"})
     public String coaches_management(Map<String, Object> map){
 

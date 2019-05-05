@@ -1,6 +1,10 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page session="true"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -8,14 +12,16 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Panel zawodnika</title>
+    <title>Zawodnicy</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
+<body onresize="stickyUpdate()">
+
+<!-- Menu strony -->
 
 <a href="index">
     <div class="container-fluid" id="bg_div">
@@ -43,14 +49,19 @@
                             <ul class="dropdown-menu">
                                 <li><a href="index#section2">Historia</a></li>
                                 <li><a href="coaches">Kadra trenerska</a></li>
-                                <li><a href="members">Zawodnicy</a></li>
+                                <li class="active"><a href="#">Zawodnicy</a></li>
                             </ul>
                         </li>
                         <li><a href="index#section3">Treningi</a></li>
                         <li><a href="index#section4">Galeria</a></li>
                         <li><a href="index#section5">Kontakt</a></li>
-                        <li><a href="${pageContext.request.contextPath}/logout">Wyloguj się</a></li>
-                        <li class="active"><a href="userPanel">Panel</a></li>
+                        <c:if test="${pageContext.request.userPrincipal.name == null}">
+                            <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+                        </c:if>
+                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                            <li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
+                            <li><a href="panel">Panel</a></li>
+                        </c:if>
                     </ul>
                 </div>
             </div>
@@ -58,46 +69,21 @@
     </nav>
 </div>
 
+<!-- Treść strony -->
 
-<div class="user_panel container-fluid">
+<div class="members container-fluid">
 
-    <div class="row">
-        <div class="col-md-7">
-            <h1>${(fencer.name).concat(' ').concat(fencer.surname)}</h1>
-        </div>
-        <div class="col-md-5"></div>
-    </div>
+    <div id="section0" class="container-fluid text-center"></div>
 
-    <div class="row">
+    <h1>Zawodnicy</h1>
+    <br>
 
-        <div class="col-md-7 panel_window">
-            <ul class="nav nav-tabs">
-                <li><a data-toggle="tab" href="#menu1">Aktualności</a></li>
-                <li><a data-toggle="tab" href="#menu2">Przypomnienia</a></li>
-                <li class="active"><a data-toggle="tab" href="#menu3">Dane</a></li>
-            </ul>
+    <c:forEach items="${memberSectionList}" var="section">
+        <h3>${section.header}</h3>
+        <hr>
+        <p>${section.content}</p>
+    </c:forEach>
 
-            <div class="tab-content">
-
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-
-                <div id="menu3" class="tab-pane fade in active">
-                    <h3>Menu 3</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>
@@ -127,21 +113,6 @@
         sticky = header.offsetTop;
         myFunction()
     }
-</script>
-
-<!-- Smooth Scroll -->
-<script type="text/javascript">
-    $("#nav ul li a[href^='#']").on('click', function(e) {
-        e.preventDefault();
-
-        var hash = this.hash;
-
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 300, function(){
-            window.location.hash = hash;
-        });
-    });
 </script>
 
 </body>

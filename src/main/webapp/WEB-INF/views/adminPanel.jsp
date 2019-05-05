@@ -43,7 +43,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="index#section2">Historia</a></li>
                                 <li><a href="coaches">Kadra trenerska</a></li>
-                                <li><a href="index#">Zawodnicy</a></li>
+                                <li><a href="members">Zawodnicy</a></li>
                             </ul>
                         </li>
                         <li><a href="index#section3">Treningi</a></li>
@@ -104,7 +104,7 @@
                         <div class="col-md-6 text-center">
                             <a href="coaches_management"><button class="button">Kadra trenerska</button></a>
                             <br>
-                            <button class="button">Zawodnicy</button>
+                            <a href="members_management"><button class="button">Zawodnicy</button></a>
                             <br>
                             <a href="history_management"><button class="button">Historia</button></a>
                             <br>

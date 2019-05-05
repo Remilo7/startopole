@@ -49,7 +49,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="index#section2">Historia</a></li>
                                 <li><a href="coaches">Kadra trenerska</a></li>
-                                <li><a href="index#">Zawodnicy</a></li>
+                                <li><a href="members">Zawodnicy</a></li>
                             </ul>
                         </li>
                         <li><a href="index#section3">Treningi</a></li>

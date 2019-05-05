@@ -46,7 +46,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="index#section2">Historia</a></li>
                                 <li><a href="coaches">Kadra trenerska</a></li>
-                                <li><a href="index#">Zawodnicy</a></li>
+                                <li><a href="members">Zawodnicy</a></li>
                             </ul>
                         </li>
                         <li><a href="index#section3">Treningi</a></li>
@@ -89,7 +89,7 @@
                         <tr>
                             <td><form:radiobutton cssClass="formradio" path="id" value="${section.id}"/></td>
                             <td>${section.header}</td>
-                            <td>${fn:substring(section.content,0,50).concat("...")}</td>
+                            <td><xmp>${fn:substring(section.content,0,50).concat("...")}</xmp></td>
                         </tr>
                         </tbody>
                     </c:forEach>

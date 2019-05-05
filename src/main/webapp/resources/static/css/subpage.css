@@ -94,9 +94,9 @@ input:focus{
     margin-bottom: 20px;
 }
 
-/* Aktualności, Galeria */
+/* Aktualności, Galeria, Zawodnicy */
 
-.news, .gallery{
+.news, .gallery, .members{
     min-height:100%;
     color: rgb(48,50,59);
     background-color: white;
@@ -105,13 +105,28 @@ input:focus{
     padding-right: 15px;
 }
 
-.news, .gallery h1 {
+.news, .gallery, .members h1 {
     margin-bottom: 50px;
 }
 
 .news img {
     float: right;
     max-height: 200px;
+}
+
+.members {
+    text-align: center;
+}
+
+.members img {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+table td {
+    vertical-align: middle !important;
 }
 
 /* Panel użytkownika */
