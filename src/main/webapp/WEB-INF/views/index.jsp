@@ -69,21 +69,21 @@
     <div id="section1" class="container-fluid">
 
         <h1>Aktualności</h1>
-
+        <br>
         <div class="row">
 
-        <c:forEach begin="0" end="3" items="${articleList}" var="article">
+            <c:forEach begin="0" end="3" items="${articleList}" var="article">
 
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <img src="<c:url value="${'/resources/uploaded/img_'.concat(article.id).concat('.jpg')}" />" alt="image">
-                    <div class="caption">
-                        <p>${article.title}</p>
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <img src="<c:url value="${'/resources/uploaded/img_'.concat(article.id).concat('.jpg')}" />" alt="image">
+                        <div class="caption">
+                            <p>${article.title}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </c:forEach>
+            </c:forEach>
 
         </div>
         <div class="text-center">
@@ -108,16 +108,16 @@
         <br>
 
         <c:forEach items="${trainingSectionList}" var="section">
-            <h3>${section.header}</h3>
+            <h3 class="text-center">${section.header}</h3>
             <hr>
-            <p>${section.content}</p>
+            <p class="text-center">${section.content}</p>
         </c:forEach>
 
     </div>
 
     <div id="section4" class="container-fluid">
         <h1>Galeria</h1>
-
+        <br>
         <div class="row">
 
             <c:forEach begin="0" end="3" items="${galleryList}" var="gallery" varStatus="loop">
@@ -140,11 +140,14 @@
 
     <div id="section5" class="container-fluid">
         <h1>Kontakt</h1>
-        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-    </div>
-    </div>
+        <br>
 
+        <c:forEach items="${contactSectionList}" var="section">
+            <h3 class="text-center">${section.header}</h3>
+            <p class="text-center">${section.content}</p>
+        </c:forEach>
+
+    </div>
 
     <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>
     <script type="text/javascript" src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" />"> </script>

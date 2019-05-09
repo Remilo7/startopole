@@ -45,6 +45,7 @@ public class MainController {
         map.put("section", section);
         map.put("historySectionList", sectionService.getAllSections("HISTORIA"));
         map.put("trainingSectionList", sectionService.getAllSections("TRENINGI"));
+        map.put("contactSectionList", sectionService.getAllSections("KONTAKT"));
         return "index";
     }
 
