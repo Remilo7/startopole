@@ -25,6 +25,7 @@ Spring MVC webapp of fencing club, presenting details of the club, helping admin
       - Trainings section
       - Coaches section
       - Members section
+      - Contact section
       
 ## Running the application locally
 
