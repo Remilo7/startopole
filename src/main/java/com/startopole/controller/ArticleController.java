@@ -49,7 +49,7 @@ public class ArticleController {
     }
 
     @RequestMapping("/editArticle")
-    public String editArticle(Map<String, Object> map, HttpSession session){
+    public String editArticle(Map<String, Object> map){
 
         Article article = new Article();
         article.setContent(articleToEdit.getContent());

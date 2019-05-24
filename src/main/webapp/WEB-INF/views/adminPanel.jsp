@@ -14,6 +14,7 @@
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/calendar.css" />" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
 
@@ -115,12 +116,27 @@
 
             </div>
         </div>
+
+        <div class="col-md-5">
+            <div id="calendar"></div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>
 <script type="text/javascript" src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" />"> </script>
+<script type="text/javascript" src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js" />"> </script>
+
+<!-- Kalendarz -->
+<script>
+    var data = [];
+
+    <c:forEach items="${eventList}" var="event">
+        data.push({eventName: '${event.eventName}', calendar: '${event.calendar}', color: '${event.color}', date: '${event.date}'});
+    </c:forEach>
+</script>
+
+<script type="text/javascript" src="<c:url value="/resources/static/js/calendar.js" />"> </script>
 
 <!-- Navbar Affix -->
 <script type="text/javascript">

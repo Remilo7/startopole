@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -8,13 +9,13 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Panel zawodnika</title>
+    <title>Nowe wydarzenie</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/static/css/calendar.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/buttons.css" />" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
 
@@ -51,7 +52,7 @@
                         <li><a href="index#section4">Galeria</a></li>
                         <li><a href="index#section5">Kontakt</a></li>
                         <li><a href="${pageContext.request.contextPath}/logout">Wyloguj się</a></li>
-                        <li class="active"><a href="userPanel">Panel</a></li>
+                        <li class="active"><a href="adminPanel">Panel</a></li>
                     </ul>
                 </div>
             </div>
@@ -61,64 +62,95 @@
 
 <!-- Treść strony -->
 
-<div class="user_panel container-fluid">
 
+<div class="user_panel container-fluid no-padding">
     <div class="row">
-        <div class="col-md-7">
-            <h1>${(fencer.name).concat(' ').concat(fencer.surname)}</h1>
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center">
+            <h1>Nowe wydarzenie w kalendarzu</h1>
         </div>
-        <div class="col-md-5"></div>
     </div>
+    <form:form action="events.do" method="post" modelAttribute="event" commandName="event" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 newArticle">
 
-    <div class="row">
+                <form:input type="text" class="form-control titleInput" path="eventName" placeholder="Nazwa" />
+                <form:input type="date" class="form-control" path="date" placeholder="Data" />
 
-        <div class="col-md-7 panel_window">
-            <ul class="nav nav-tabs">
-                <li><a data-toggle="tab" href="#menu1">Aktualności</a></li>
-                <li><a data-toggle="tab" href="#menu2">Przypomnienia</a></li>
-                <li class="active"><a data-toggle="tab" href="#menu3">Dane</a></li>
-            </ul>
+                <b>Kategoria</b>
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th />
+                        <th />
+                    </tr>
+                    </thead>
 
-            <div class="tab-content">
+                    <tbody>
+                    <tr>
+                        <td><form:checkbox path="categories" value="1"/></td>
+                        <td>Senior</td>
+                    </tr>
+                    <tr>
+                        <td><form:checkbox path="categories" value="2"/></td>
+                        <td>Młodzieżowiec</td>
+                    </tr>
+                    <tr>
+                        <td><form:checkbox path="categories" value="3"/></td>
+                        <td>Junior</td>
+                    </tr>
+                    <tr>
+                        <td><form:checkbox path="categories" value="4"/></td>
+                        <td>Kadet (junior młodszy)</td>
+                    </tr>
+                    <tr>
+                        <td><form:checkbox path="categories" value="5"/></td>
+                        <td>Młodzik</td>
+                    </tr>
+                    <tr>
+                        <td><form:checkbox path="categories" value="6"/></td>
+                        <td>Dzieci</td>
+                    </tr>
+                    <tr>
+                        <td><form:checkbox path="categories" value="7"/></td>
+                        <td>Zuch</td>
+                    </tr>
+                    <tr>
+                        <td><form:checkbox path="categories" value="8"/></td>
+                        <td>Skrzat</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-
-                <div id="menu3" class="tab-pane fade in active">
-                    <h3>Menu 3</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
+                <b>Kolor</b>
+                <br><br>
+                <form:select path="color">
+                    <form:option value="green">Zielony</form:option>
+                    <form:option value="blue">Niebieski</form:option>
+                    <form:option value="orange">Pomarańczowy</form:option>
+                    <form:option value="yellow">Żółty</form:option>
+                </form:select>
 
             </div>
         </div>
-
-        <div class="col-md-5">
-            <div id="calendar"></div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 no-padding">
+                <div class="col-md-6 newsButtons">
+                    <button class="btn btn-navy btn-border pull-left" name="action" value="Back">Wstecz</button></a>
+                </div>
+                <div class="col-md-6 newsButtons">
+                    <button class="btn btn-green btn-border pull-right" name="action" value="Add">Dodaj</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </form:form>
+    <br>
 </div>
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>
 <script type="text/javascript" src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" />"> </script>
-<script type="text/javascript" src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js" />"> </script>
-
-<!-- Kalendarz -->
-<script>
-    var data = [];
-
-    <c:forEach items="${eventList}" var="event">
-    data.push({eventName: '${event.eventName}', calendar: '${event.calendar}', color: '${event.color}', date: '${event.date}'});
-    </c:forEach>
-</script>
-
-<script type="text/javascript" src="<c:url value="/resources/static/js/calendar.js" />"> </script>
 
 <!-- Navbar Affix -->
 <script type="text/javascript">

@@ -1,6 +1,8 @@
 package com.startopole.controller;
 
+import com.startopole.model.entity.Event;
 import com.startopole.services.CoachService;
+import com.startopole.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +18,13 @@ public class CoachPanelController {
     @Autowired
     CoachService coachService;
 
+    @Autowired
+    EventService eventService;
+
     @RequestMapping(value = "/coachPanel", method = RequestMethod.GET)
     public String adminPanel(Model model, Principal principal, Map<String, Object> map) {
+
+        Event event = new Event();
 
         String temp = " ";
 
@@ -27,6 +34,8 @@ public class CoachPanelController {
         }
 
         map.put("coach_name", temp);
+        map.put("event", event);
+        map.put("eventList", eventService.getAllEvents());
 
         return "coachPanel";
     }
