@@ -54,7 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/userPanel").access("hasRole('ROLE_USER')");
 
         // For COACH only.
-        http.authorizeRequests().antMatchers("/coachPanel").access("hasRole('ROLE_COACH')");
+        http.authorizeRequests().antMatchers("/coachPanel", "/events_management","/newEvent",
+                "/editEvent").access("hasRole('ROLE_COACH')");
 
         // When the user has logged in as XX.
         // But access a page that requires role YY,

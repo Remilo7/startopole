@@ -52,7 +52,7 @@
                         <li><a href="index#section4">Galeria</a></li>
                         <li><a href="index#section5">Kontakt</a></li>
                         <li><a href="${pageContext.request.contextPath}/logout">Wyloguj się</a></li>
-                        <li class="active"><a href="adminPanel">Panel</a></li>
+                        <li class="active"><a href="panel">Panel</a></li>
                     </ul>
                 </div>
             </div>

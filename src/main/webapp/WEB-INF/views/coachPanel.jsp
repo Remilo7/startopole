@@ -15,6 +15,7 @@
     <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/calendar.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/buttons.css" />" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
 
@@ -76,6 +77,7 @@
             <ul class="nav nav-tabs">
                 <li><a data-toggle="tab" href="#menu1">Wysłane wiadomości</a></li>
                 <li class="active"><a data-toggle="tab" href="#menu2">Lista zawodników</a></li>
+                <li><a href="events_management">Wydarzenia</a></li>
             </ul>
 
             <div class="tab-content">
@@ -86,8 +88,31 @@
                 </div>
 
                 <div id="menu2" class="tab-pane fade in active">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+
+                    <form:form action="listFencers.do" method="post" modelAttribute="fencer" commandName="fencer">
+                        <table class="table table-hover table-responsive">
+                            <thead>
+                            <tr>
+                                <th />
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                            </tr>
+                            </thead>
+
+                            <c:forEach items="${fencerList}" var="fencer">
+                                <tbody>
+                                <tr>
+                                    <td><form:radiobutton path="username" value="${fencer.username}"/></td>
+                                    <td>${fencer.name}</td>
+                                    <td>${fencer.surname}</td>
+                                </tr>
+                                </tbody>
+                            </c:forEach>
+                        </table>
+
+                        <button class="btn btn-blue btn-border pull-left" name="action" value="sendMessage">Wyślij wiadomość</button>
+                        <button class="btn btn-green btn-border pull-right" name="action" value="showData">Wyświetl dane</button>
+                    </form:form>
                 </div>
 
             </div>
