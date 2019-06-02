@@ -1,9 +1,6 @@
 package com.startopole.controller;
 
-import com.startopole.model.entity.Event;
-import com.startopole.model.entity.Fencer;
-import com.startopole.model.entity.Message;
-import com.startopole.model.entity.UserInfo;
+import com.startopole.model.entity.*;
 import com.startopole.model.viewModel.MessageViewModel;
 import com.startopole.model.viewModel.PanelFencerViewModel;
 import com.startopole.services.*;
@@ -16,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +40,9 @@ public class AdminPanelController {
 
     @Autowired
     MessageService messageService;
+
+    @Autowired
+    CategoryService categoryService;
 
     private List<String> receiverList = new ArrayList<String>();
     private List<PanelFencerViewModel> fencerList = new ArrayList<PanelFencerViewModel>();
@@ -67,7 +70,8 @@ public class AdminPanelController {
             for (Fencer fenc:fencers) {
                 if(userInfo.getUserName().equals(fenc.getUserName())){
                     if (userInfo.getEnabled() == 1)
-                        fencerList.add(new PanelFencerViewModel(userInfo.getUserName(), fenc.getName(), fenc.getSurname()));
+                        fencerList.add(new PanelFencerViewModel(userInfo.getUserName(), fenc.getName(), fenc.getSurname(),
+                                fenc.getEmail(), fenc.getBir_date(), fenc.getPhone(), findCategory(fenc)));
                 }
             }
         }
@@ -99,6 +103,23 @@ public class AdminPanelController {
         return "newMessage";
     }
 
+    @RequestMapping("/fencerDetails")
+    public String fencerDetails(Map<String, Object> map){
+
+        List<PanelFencerViewModel> tempFencers = new ArrayList<PanelFencerViewModel>();
+
+        for (String rec:receiverList) {
+            for (PanelFencerViewModel fenc:fencerList) {
+                if (fenc.getUsername().equals(rec))
+                    tempFencers.add(fenc);
+            }
+        }
+
+        map.put("fencer", new Fencer());
+        map.put("fencerList", tempFencers);
+        return "fencerDetails";
+    }
+
     @RequestMapping(value="/fencers.do", method= RequestMethod.POST)
     public String doActions(@ModelAttribute("fencer") PanelFencerViewModel fencer, @RequestParam String action, Map<String, Object> map){
 
@@ -108,7 +129,8 @@ public class AdminPanelController {
         }
 
         else if ("showdata".equals(action.toLowerCase())) {
-
+            receiverList = fencer.getUsernameList();
+            return "redirect:/fencerDetails";
         }
 
         return "redirect:/adminPanel";
@@ -138,5 +160,34 @@ public class AdminPanelController {
         }
 
         return "redirect:/adminPanel";
+    }
+
+    private String findCategory(Fencer fencer){
+
+        int curr_year = Calendar.getInstance().get(Calendar.YEAR);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+
+            java.util.Date bir_date = sdf.parse(fencer.getBir_date());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(bir_date);
+
+            int bir_year = cal.get(Calendar.YEAR);
+            int age = curr_year-bir_year;
+
+            List<Category> categories = categoryService.getAllCategories();
+
+            for (Category cat:categories) {
+                if ((age >= cat.getMin_age()) && (age <= cat.getMax_age()))
+                    return cat.getName();
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return ("Niezidentyfikowana kategoria");
     }
 }

@@ -126,8 +126,40 @@
                 </div>
 
                 <div id="menu3" class="tab-pane fade in active">
-                    <h3>Menu 3</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+
+                    <table class="table table-hover table-responsive">
+                        <tbody>
+                        <tr>
+                            <th>Imię</th>
+                            <td>${fencer.name}</td>
+                        </tr>
+                        <tr>
+                            <th>Nazwisko</th>
+                            <td>${fencer.surname}</td>
+                        </tr>
+                        <tr>
+                            <th>Nazwa użytkownika</th>
+                            <td>${fencer.userName}</td>
+                        </tr>
+                        <tr>
+                            <th>Adres email</th>
+                            <td>${fencer.email}</td>
+                        </tr>
+                        <tr>
+                            <th>Telefon</th>
+                            <td>${fencer.phone}</td>
+                        </tr>
+                        <tr>
+                            <th>Data urodzenia</th>
+                            <td>${fencer.bir_date}</td>
+                        </tr>
+                        <tr>
+                            <th>Kategoria wiekowa</th>
+                            <td>${category}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
                 </div>
 
             </div>

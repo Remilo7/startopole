@@ -47,17 +47,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/editArticle", "/galleries_management", "/newGallery", "/users_management", "/history_management",
                 "/newHistory", "/editHistory", "/trainings_management", "/newTraining",
                 "/editTraining", "/coaches_management", "/newCoach", "/editCoach", "/members_management",
-                "/newMember", "/editMember", "/contact_management", "/newContact", "/editContact", "/newMessage").access("hasRole('ROLE_ADMIN')");
+                "/newMember", "/editMember", "/contact_management", "/newContact", "/editContact", "/newMessage",
+                "/fencerDetails").access("hasRole('ROLE_ADMIN')");
 
         // For USER only.
         http.authorizeRequests().antMatchers("/userPanel").access("hasRole('ROLE_USER')");
 
         // For COACH only.
-        http.authorizeRequests().antMatchers("/coachPanel").access("hasRole('ROLE_COACH')");
+        http.authorizeRequests().antMatchers("/coachPanel", "/newCoachMessage",
+                 "/coachFencerDetails").access("hasRole('ROLE_COACH')");
 
         // For ADMIN and COACH
         http.authorizeRequests().antMatchers("/events_management","/newEvent",
-                "/editEvent", "/newCoachMessage").access("hasAnyRole('ROLE_ADMIN','ROLE_COACH')");
+                "/editEvent").access("hasAnyRole('ROLE_ADMIN','ROLE_COACH')");
 
         // When the user has logged in as XX.
         // But access a page that requires role YY,

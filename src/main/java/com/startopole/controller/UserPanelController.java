@@ -84,6 +84,7 @@ public class UserPanelController {
         }
 
         map.put("fencer", fencer);
+        map.put("category", findCategory(fencer));
         map.put("event", event);
         map.put("eventList", events);
         map.put("listAktualnosci", listAktualnosci);
