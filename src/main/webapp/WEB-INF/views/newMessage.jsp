@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -9,13 +9,12 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Panel trenera</title>
+    <title>Nowa wiadomość</title>
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/static/css/calendar.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/buttons.css" />" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
@@ -53,7 +52,7 @@
                         <li><a href="index#section4">Galeria</a></li>
                         <li><a href="index#section5">Kontakt</a></li>
                         <li><a href="${pageContext.request.contextPath}/logout">Wyloguj się</a></li>
-                        <li class="active"><a href="coachPanel">Panel</a></li>
+                        <li class="active"><a href="panel">Panel</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,107 +62,46 @@
 
 <!-- Treść strony -->
 
-<div class="user_panel container-fluid">
 
+<div class="user_panel container-fluid no-padding">
     <div class="row">
-        <div class="col-md-7">
-            <h1>${coach_name}</h1>
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center">
+            <h1>Nowe powiadomienie dla zawodnika</h1>
         </div>
-        <div class="col-md-5"></div>
     </div>
+    <form:form action="messages.do" method="post" modelAttribute="message" commandName="message">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 newArticle">
 
-    <div class="row">
+                <br><br>
+                <form:select path="category">
+                    <form:option value="aktualnosci">Aktualności</form:option>
+                    <form:option value="przypomnienia">Przypomnienia</form:option>
+                </form:select>
 
-        <div class="col-md-7 panel_window">
-            <ul class="nav nav-tabs">
-                <li><a data-toggle="tab" href="#menu1">Wysłane wiadomości</a></li>
-                <li class="active"><a data-toggle="tab" href="#menu2">Lista zawodników</a></li>
-                <li><a href="events_management">Wydarzenia</a></li>
-            </ul>
-
-            <div class="tab-content">
-
-                <div id="menu1" class="tab-pane fade">
-
-                    <form:form action="coachMessages.do" method="post" modelAttribute="message" commandName="message">
-                        <table class="table table-hover table-responsive">
-                            <thead>
-                            <tr>
-                                <th />
-                                <th>Odbiorca</th>
-                                <th>Kategoria</th>
-                                <th>Treść</th>
-                            </tr>
-                            </thead>
-
-                            <c:forEach items="${sentMessages}" var="message">
-                                <tbody>
-                                <tr>
-                                    <td><form:radiobutton path="id" value="${message.id}"/></td>
-                                    <td>${message.receiver}</td>
-                                    <td>${message.category}</td>
-                                    <td>${message.content}</td>
-                                </tr>
-                                </tbody>
-                            </c:forEach>
-                        </table>
-
-                        <button class="btn btn-red btn-border pull-left" name="action" value="deleteMessage">Usuń</button>
-                    </form:form>
-
-                </div>
-
-                <div id="menu2" class="tab-pane fade in active">
-
-                    <form:form action="coachFencers.do" method="post" modelAttribute="fencer" commandName="fencer">
-                        <table class="table table-hover table-responsive">
-                            <thead>
-                            <tr>
-                                <th />
-                                <th>Imię</th>
-                                <th>Nazwisko</th>
-                            </tr>
-                            </thead>
-
-                            <c:forEach items="${fencerList}" var="fencer">
-                                <tbody>
-                                <tr>
-                                    <td><form:checkbox path="usernameList" value="${fencer.username}"/></td>
-                                    <td>${fencer.name}</td>
-                                    <td>${fencer.surname}</td>
-                                </tr>
-                                </tbody>
-                            </c:forEach>
-                        </table>
-
-                        <button class="btn btn-blue btn-border pull-left" name="action" value="sendMessage">Wyślij wiadomość</button>
-                        <button class="btn btn-green btn-border pull-right" name="action" value="showData">Wyświetl dane</button>
-                    </form:form>
-                </div>
+                <form:textarea class="form-control contentInput" path="content" placeholder="Treść..." />
 
             </div>
         </div>
-
-        <div class="col-md-5">
-            <div id="calendar"></div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 no-padding">
+                <div class="col-md-6 newsButtons">
+                    <button class="btn btn-navy btn-border pull-left" name="action" value="Back">Wstecz</button></a>
+                </div>
+                <div class="col-md-6 newsButtons">
+                    <button class="btn btn-green btn-border pull-right" name="action" value="Add">Dodaj</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </form:form>
+    <br>
 </div>
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>
 <script type="text/javascript" src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" />"> </script>
-<script type="text/javascript" src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js" />"> </script>
-
-<!-- Kalendarz -->
-<script>
-    var data = [];
-
-    <c:forEach items="${eventList}" var="event">
-    data.push({eventName: '${event.eventName}', calendar: '${event.calendar}', color: '${event.color}', date: '${event.date}'});
-    </c:forEach>
-</script>
-
-<script type="text/javascript" src="<c:url value="/resources/static/js/calendar.js" />"> </script>
 
 <!-- Navbar Affix -->
 <script type="text/javascript">

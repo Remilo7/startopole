@@ -1,10 +1,16 @@
 package com.startopole.model.viewModel;
 
+import java.util.List;
+
 public class PanelFencerViewModel {
 
     private String username;
     private String name;
     private String surname;
+    private List<String> usernameList;
+
+    public PanelFencerViewModel() {
+    }
 
     public PanelFencerViewModel(String username, String name, String surname) {
         this.username = username;
@@ -34,5 +40,13 @@ public class PanelFencerViewModel {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public List<String> getUsernameList() {
+        return usernameList;
+    }
+
+    public void setUsernameList(List<String> usernameList) {
+        this.usernameList = usernameList;
     }
 }

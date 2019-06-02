@@ -1,13 +1,8 @@
 package com.startopole.controller;
 
-import com.startopole.model.entity.Category;
-import com.startopole.model.entity.Event;
-import com.startopole.model.entity.EventCategory;
-import com.startopole.model.entity.Fencer;
-import com.startopole.services.CategoryService;
-import com.startopole.services.EventCategoryService;
-import com.startopole.services.EventService;
-import com.startopole.services.FencerService;
+import com.startopole.model.entity.*;
+import com.startopole.model.viewModel.MessageViewModel;
+import com.startopole.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +13,7 @@ import java.security.Principal;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +32,18 @@ public class UserPanelController {
 
     @Autowired
     EventCategoryService eventCategoryService;
+
+    @Autowired
+    UserInfoService userInfoService;
+
+    @Autowired
+    MessageService messageService;
+
+    @Autowired
+    CoachService coachService;
+
+    @Autowired
+    AdminService adminService;
 
     @RequestMapping(value = "/userPanel", method = RequestMethod.GET)
     public String userPanel(Model model, Principal principal, Map<String, Object> map) {
@@ -59,9 +67,27 @@ public class UserPanelController {
             }
         }
 
+        List<MessageViewModel> listAktualnosci = new ArrayList<MessageViewModel>();
+        List<MessageViewModel> listPrzypomnienia = new ArrayList<MessageViewModel>();
+
+        List<Message> tempMessages = messageService.getAllFencerMessage(principal.getName());
+
+        for (Message mes:tempMessages) {
+
+            if (mes.getCategory().equalsIgnoreCase("aktualnosci")){
+                listAktualnosci.add(new MessageViewModel(findSenderName(mes.getSender().getUserName()), mes.getContent()));
+            }
+
+            else {
+                listPrzypomnienia.add(new MessageViewModel(findSenderName(mes.getSender().getUserName()), mes.getContent()));
+            }
+        }
+
         map.put("fencer", fencer);
         map.put("event", event);
         map.put("eventList", events);
+        map.put("listAktualnosci", listAktualnosci);
+        map.put("listPrzypomnienia", listPrzypomnienia);
 
         return "userPanel";
     }
@@ -93,5 +119,19 @@ public class UserPanelController {
         }
 
         return ("Niezidentyfikowana kategoria");
+    }
+
+    private String findSenderName(String username){
+
+        Admin admin = adminService.getAdmin(username);
+
+        if (admin != null)
+            return admin.getName()+" "+admin.getSurname();
+
+        else{
+
+            Coach coach = coachService.getCoach(username);
+            return coach.getName()+" "+coach.getSurname();
+        }
     }
 }

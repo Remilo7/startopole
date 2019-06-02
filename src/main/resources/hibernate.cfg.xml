@@ -16,5 +16,6 @@
         <mapping class="com.startopole.model.entity.Event" />
         <mapping class="com.startopole.model.entity.Category" />
         <mapping class="com.startopole.model.entity.EventCategory" />
+        <mapping class="com.startopole.model.entity.Message" />
     </session-factory>
 </hibernate-configuration>

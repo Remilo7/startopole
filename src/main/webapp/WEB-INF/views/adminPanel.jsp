@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -84,8 +85,33 @@
             <div class="tab-content">
 
                 <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    <form:form action="messages.do" method="post" modelAttribute="message" commandName="message">
+                        <table class="table table-hover table-responsive">
+                            <thead>
+                            <tr>
+                                <th />
+                                <th>Odbiorca</th>
+                                <th>Kategoria</th>
+                                <th>Treść</th>
+                            </tr>
+                            </thead>
+
+                            <c:forEach items="${sentMessages}" var="message">
+                                <tbody>
+                                <tr>
+                                    <td><form:radiobutton path="id" value="${message.id}"/></td>
+                                    <td>${message.receiver}</td>
+                                    <td>${message.category}</td>
+                                    <td>${message.content}</td>
+                                </tr>
+                                </tbody>
+                            </c:forEach>
+                        </table>
+
+                        <button class="btn btn-red btn-border pull-left" name="action" value="deleteMessage">Usuń</button>
+                    </form:form>
+
                 </div>
 
                 <div id="menu2" class="tab-pane fade">
@@ -103,7 +129,7 @@
                             <c:forEach items="${fencerList}" var="fencer">
                                 <tbody>
                                 <tr>
-                                    <td><form:radiobutton path="username" value="${fencer.username}"/></td>
+                                    <td><form:checkbox path="usernameList" value="${fencer.username}"/></td>
                                     <td>${fencer.name}</td>
                                     <td>${fencer.surname}</td>
                                 </tr>
