@@ -31,6 +31,10 @@ Spring MVC webapp of fencing club, presenting details of the club, helping admin
       - Events edition 
       - Events removing
     - List fencers in admin and coach panel
+    - Messages
+      - Sending messages of two categories to fencers from Coach or Admin
+      - Deleting sent messages
+      - Displaying messages in user panel
       
 ## Running the application locally
 
