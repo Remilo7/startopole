@@ -4,7 +4,14 @@ Spring MVC webapp of fencing club, presenting details of the club, helping admin
 ## Features
  - Bootstrap based front-end
  - Navbar with affix
- - Presenting sections: news, short history of the club, trainings details, gallery and contact
+ - Presenting sections
+    - News
+    - Short history of the club
+    - Trainings details
+    - Coaches
+    - Members
+    - Image gallery
+    - Contact
  - Articles page
  - Login and registration system
  - Connection to the MySQL database
@@ -31,10 +38,11 @@ Spring MVC webapp of fencing club, presenting details of the club, helping admin
       - Events edition 
       - Events removing
     - List fencers in admin and coach panel
-    - Messages
-      - Sending messages of two categories to fencers from Coach or Admin
-      - Deleting sent messages
-      - Displaying messages in user panel
+      - Showing details of fencer
+      - Sending messages
+        - Sending messages of two categories to fencers from Coach or Admin
+        - Deleting sent messages
+        - Displaying messages in user panel
       
 ## Running the application locally
 
