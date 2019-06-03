@@ -43,7 +43,7 @@ Spring MVC webapp of fencing club, presenting details of the club, helping admin
         - Sending messages of two categories to fencers
         - Deleting sent messages
   - Coach panel
-    - Same calendard as in admin panel
+    - Same calendar functionalities as in admin panel
     - Same funcionalities connected to listing fencers
   - User panel
     - Displaying details of user(fencer)
