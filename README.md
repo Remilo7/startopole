@@ -52,7 +52,13 @@ Spring MVC webapp of fencing club, presenting details of the club, helping admin
       
 ## Running the application locally
 
-You need the Tomcat server. 
-After downloading it, paste the startopole-1.0.war file into the webapps folder inside Tomcat directory. 
+You need the Tomcat server and installed Maven. 
+Enter the directory where you downloaded the code and run:
+```
+maven package
+```
+The directory target will be created and file startopole-1.0.war inside it.
+Copy and paste it into the webapps folder inside Tomcat directory. 
+Run the Tomcat server.
 After few seconds, the web application is available on http://localhost:8080/startopole_war/
 
