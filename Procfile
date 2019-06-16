@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/startopole-0.0.1.jar
+web: sh target/bin/webapp
