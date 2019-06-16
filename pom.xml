@@ -11,7 +11,7 @@
 	<groupId>com</groupId>
 	<artifactId>startopole</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>startopole</name>
 	<description>Spring webapp of fencing club</description>
 
