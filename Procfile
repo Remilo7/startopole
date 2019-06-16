@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/startopole-1.0.jar --server.port=$PORT $JAR_OPTS
+web: java -jar target/startopole-0.0.1.jar
