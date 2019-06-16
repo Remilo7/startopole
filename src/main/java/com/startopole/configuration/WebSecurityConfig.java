@@ -2,36 +2,58 @@ package com.startopole.configuration;
 
 import com.startopole.authentication.MyDBAuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 // @EnableWebSecurity = @EnableWebMVCSecurity + Extra features
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Bean
+    public UserDetailsService userDetailsService() {
+
+        return new MyDBAuthenticationService();
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+
+        authProvider.setUserDetailsService(userDetailsService());
+        authProvider.setPasswordEncoder(passwordEncoder());
+
+        return authProvider;
+    }
 
     @Autowired
-    MyDBAuthenticationService myDBAauthenticationService;
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         // Users in memory.
-
-        auth.inMemoryAuthentication().withUser("user1").password("12345").roles("USER");
-        auth.inMemoryAuthentication().withUser("admin1").password("12345").roles("USER, ADMIN");
+        auth.inMemoryAuthentication()
+                .withUser("admin1").password(passwordEncoder().encode("admin1_pass")).roles("ADMIN");
 
         // For User in database.
-        auth.userDetailsService(myDBAauthenticationService);
+        auth.authenticationProvider(authenticationProvider());
 
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(final HttpSecurity http) throws Exception {
 
         http.csrf().disable();
 
@@ -48,18 +70,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/newHistory", "/editHistory", "/trainings_management", "/newTraining",
                 "/editTraining", "/coaches_management", "/newCoach", "/editCoach", "/members_management",
                 "/newMember", "/editMember", "/contact_management", "/newContact", "/editContact", "/newMessage",
-                "/fencerDetails").access("hasRole('ROLE_ADMIN')");
+                "/fencerDetails").access("hasRole('ADMIN')");
 
         // For USER only.
-        http.authorizeRequests().antMatchers("/userPanel").access("hasRole('ROLE_USER')");
+        http.authorizeRequests().antMatchers("/userPanel").access("hasRole('USER')");
 
         // For COACH only.
         http.authorizeRequests().antMatchers("/coachPanel", "/newCoachMessage",
-                 "/coachFencerDetails").access("hasRole('ROLE_COACH')");
+                 "/coachFencerDetails").access("hasRole('COACH')");
 
         // For ADMIN and COACH
         http.authorizeRequests().antMatchers("/events_management","/newEvent",
-                "/editEvent").access("hasAnyRole('ROLE_ADMIN','ROLE_COACH')");
+                "/editEvent").access("hasAnyRole('ADMIN','COACH')");
 
         // When the user has logged in as XX.
         // But access a page that requires role YY,

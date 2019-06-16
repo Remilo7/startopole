@@ -86,7 +86,7 @@
 
                 <div id="menu1" class="tab-pane fade">
 
-                    <form:form action="messages.do" method="post" modelAttribute="message" commandName="message">
+                    <form:form action="messages.do" method="post" modelAttribute="message">
                         <table class="table table-hover table-responsive">
                             <thead>
                             <tr>
@@ -116,7 +116,7 @@
 
                 <div id="menu2" class="tab-pane fade">
 
-                    <form:form action="fencers.do" method="post" modelAttribute="fencer" commandName="fencer">
+                    <form:form action="fencers.do" method="post" modelAttribute="fencer">
                         <table class="table table-hover table-responsive">
                             <thead>
                             <tr>

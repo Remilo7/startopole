@@ -85,7 +85,7 @@
 
                 <div id="menu1" class="tab-pane fade">
 
-                    <form:form action="coachMessages.do" method="post" modelAttribute="message" commandName="message">
+                    <form:form action="coachMessages.do" method="post" modelAttribute="message">
                         <table class="table table-hover table-responsive">
                             <thead>
                             <tr>
@@ -115,7 +115,7 @@
 
                 <div id="menu2" class="tab-pane fade in active">
 
-                    <form:form action="coachFencers.do" method="post" modelAttribute="fencer" commandName="fencer">
+                    <form:form action="coachFencers.do" method="post" modelAttribute="fencer">
                         <table class="table table-hover table-responsive">
                             <thead>
                             <tr>

@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="startopole-1.0.war">
+    <root id="archive" name="startopole-0.0.1-SNAPSHOT.war">
       <element id="artifact" artifact-name="startopole:war exploded" />
     </root>
   </artifact>

@@ -69,7 +69,7 @@
             <h1>Zarządzaj aktualnościami</h1>
         </div>
     </div>
-    <form:form action="article.do" method="post" modelAttribute="article" commandName="article">
+    <form:form action="article.do" method="post" modelAttribute="article">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 panel_window">

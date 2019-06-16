@@ -70,7 +70,7 @@
             <h3>Rejestracja</h3>
         </div>
         <div class="card-body">
-            <form:form action="addUser" method="post">
+            <form:form action="addUser" method="post" modelAttribute="registrationviewmodel">
                 <div class="form-group">
                     <form:input type="text" path="userName" class="form-control" placeholder="Nazwa użytkownika" required="required" />
                     <form:input type="email" path="email" class="form-control" placeholder="Adres e-mail" required="required" />
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="text-center">
-                    <input type="submit" value="Zarejestruj" class="btn login_btn form-control">
+                    <button value="Zarejestruj" class="btn login_btn form-control" name="action">Zarejestruj</button>
                 </div>
             </form:form>
         </div>

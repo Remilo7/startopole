@@ -36,14 +36,6 @@ public class ApplicationContextConfig {
     @Autowired
     private Environment env;
 
-    @Bean
-    public ResourceBundleMessageSource messageSource() {
-        ResourceBundleMessageSource rb = new ResourceBundleMessageSource();
-        // Load property in message/validator.properties
-        rb.setBasenames(new String[] { "messages/validator" });
-        return rb;
-    }
-
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

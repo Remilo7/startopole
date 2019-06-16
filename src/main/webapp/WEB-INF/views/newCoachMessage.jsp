@@ -70,7 +70,7 @@
             <h1>Nowe powiadomienie dla zawodnika</h1>
         </div>
     </div>
-    <form:form action="coachMessages.do" method="post" modelAttribute="message" commandName="message">
+    <form:form action="coachMessages.do" method="post" modelAttribute="message">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 newArticle">

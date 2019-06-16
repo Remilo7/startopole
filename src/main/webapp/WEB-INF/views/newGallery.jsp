@@ -68,7 +68,7 @@
             <h1>Nowa galeria zdjęć</h1>
         </div>
     </div>
-    <form:form action="gallery.do" method="post" modelAttribute="gallery" commandName="gallery" enctype="multipart/form-data">
+    <form:form action="gallery.do" method="post" modelAttribute="gallery" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 newArticle">

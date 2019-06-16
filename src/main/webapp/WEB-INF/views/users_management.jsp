@@ -81,7 +81,7 @@
 
             <div class="tab-content">
                 <div id="notactive" class="tab-pane fade in active">
-                    <form:form action="users.do" method="post" modelAttribute="user" commandName="user">
+                    <form:form action="users.do" method="post" modelAttribute="user">
                         <table class="table table-hover table-responsive">
                             <thead>
                                 <tr>
@@ -109,7 +109,7 @@
                 </div>
 
                 <div id="active" class="tab-pane fade">
-                    <form:form action="users.do" method="post" modelAttribute="user" commandName="user">
+                    <form:form action="users.do" method="post" modelAttribute="user">
                         <table class="table table-hover table-responsive">
                             <thead>
                                 <tr>

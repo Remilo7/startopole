@@ -70,7 +70,7 @@
             <h1>Nowe wydarzenie w kalendarzu</h1>
         </div>
     </div>
-    <form:form action="events.do" method="post" modelAttribute="event" commandName="event" enctype="multipart/form-data">
+    <form:form action="events.do" method="post" modelAttribute="event" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 newArticle">

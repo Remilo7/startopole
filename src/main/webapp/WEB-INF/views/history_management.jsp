@@ -70,7 +70,7 @@
             <h1>Zarządzaj akapitami w sekcji - historia klubu</h1>
         </div>
     </div>
-    <form:form action="history.do" method="post" modelAttribute="section" commandName="section">
+    <form:form action="history.do" method="post" modelAttribute="section">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 panel_window">

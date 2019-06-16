@@ -68,7 +68,7 @@
             <h1>Zarządzaj galeriami zdjęć</h1>
         </div>
     </div>
-    <form:form action="gallery.do" method="post" modelAttribute="gallery" commandName="gallery">
+    <form:form action="gallery.do" method="post" modelAttribute="gallery">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 panel_window">

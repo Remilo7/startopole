@@ -70,7 +70,7 @@
             <h1>Edytuj akapit</h1>
         </div>
     </div>
-    <form:form action="history.do" method="post" modelAttribute="section" commandName="section" enctype="multipart/form-data">
+    <form:form action="history.do" method="post" modelAttribute="section" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 newArticle">

@@ -69,7 +69,7 @@
             <h1>Zarządzaj wydarzeniami</h1>
         </div>
     </div>
-    <form:form action="events.do" method="post" modelAttribute="event" commandName="event">
+    <form:form action="events.do" method="post" modelAttribute="event">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 panel_window">
