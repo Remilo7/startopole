@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com</groupId>
 	<artifactId>startopole</artifactId>
-	<version>0.0.1</version>
 	<name>startopole</name>
 	<description>Spring webapp of fencing club</description>
 
