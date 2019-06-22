@@ -70,11 +70,11 @@
 
         <h1>Aktualności</h1>
         <br>
-        <div class="row">
+        <div class="row display-flex">
 
             <c:forEach begin="0" end="3" items="${articleList}" var="article">
 
-                <div class="col-xs-6 col-md-3">
+                <div class="col-xs-6 col-md-3 thumbMargin">
                     <div class="thumbnail">
                         <img src="<c:url value="${'/resources/uploaded/img_'.concat(article.id).concat('.jpg')}" />" alt="image">
                         <div class="caption">

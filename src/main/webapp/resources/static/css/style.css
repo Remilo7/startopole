@@ -7,10 +7,18 @@ body, html {
 
     position: relative;
     height: 100%;
+    width: 100%;
 }
 
 p {
     font-size: 110%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 /* Główny Navbar */
@@ -102,13 +110,28 @@ p {
 
 /* Miniatury zdjęć z podpisami */
 
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.thumbnail {
+    height: 100%;
+    margin-bottom: 15px;
+}
+
 .caption p, a {
     text-align: center;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .caption a {
     margin: 0 auto;
     display: block;
+}
+
+.thumbMargin {
+    margin-bottom: 15px;
 }
 
 /* Kolejne sekcje strony */
@@ -136,7 +159,7 @@ p {
 }
 
 #section2 {
-    padding-top:200px;
+    padding-top:250px;
     padding-bottom: 300px;
     min-height:100%;
     color: rgb(48,50,59);
@@ -183,4 +206,18 @@ p {
 
     -webkit-clip-path: polygon(0 10%, 100% 10vw, 100% 100%, 0 100%);
     clip-path: polygon(0 10%, 100% 10vw, 100% 100%, 0 100%);
+}
+
+/* Wersja mobilna */
+
+@media only screen and (max-width: 600px) {
+
+    #bg_div {
+        display: none;
+    }
+
+    #nav {
+        position: fixed !important;
+        top: 0 !important;
+    }
 }
