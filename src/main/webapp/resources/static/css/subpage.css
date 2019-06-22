@@ -1,92 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-body, html {
-    background: url('../img/opole.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-    position: relative;
-    height: 100%;
-}
-
 /* Główny Navbar */
 
-.navbar {
-    margin-bottom: 0px;
-
-    background: rgba(76,76,76,1);
-    background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(0%, rgba(44,44,44,1)), color-stop(0%, rgba(0,0,0,1)), color-stop(60%, rgba(17,17,17,0.94)), color-stop(91%, rgba(28,28,28,0.91)), color-stop(100%, rgba(19,19,19,0.9)));
-    background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.94) 60%, rgba(28,28,28,0.91) 91%, rgba(19,19,19,0.9) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
-
-    -webkit-box-shadow: 0px 9px 19px 7px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 9px 19px 7px rgba(0,0,0,0.75);
-    box-shadow: 0px 9px 19px 7px rgba(0,0,0,0.75);
-
-    border-style: none;
-    border-radius: 0;
-}
-
-.navbar-nav{
-    float:none;
-    margin: 0 auto;
-    display: table;
-    table-layout: fixed;
-}
-
-.navbar ul {
-    font-size: 125%;
-}
-
-/* Kolor tekstu itemów Navbara */
-
-.navbar-nav > li > a {
-    color: rgba(255,255,255,0.8) !important;
-}
-
-.navbar-nav > li > a:hover {
-    color: rgba(255,255,255,1) !important;
-}
-
-.navbar .navbar-collapse {
-    text-align: center;
-}
-
-/* Kolor aktywnego itemu Navbara */
-
-.navbar-nav > .active > a {
-    color: rgba(255,255,255,1) !important;
-}
-
-/* Tło rozwijanej części */
-
-.dropdown-menu {
-    background: rgba(255,255,255,0.8);
-    background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0.8)), color-stop(0%, rgba(246,246,246,0.8)), color-stop(100%, rgba(247,247,247,0.34)));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: -o-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: -ms-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7', GradientType=0 );
-}
-
-#nav.affix {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index:10;
-}
-
-.no-padding{
-    padding-left:0;
-    padding-right:0;
+#nav {
+    z-index: 99;
+    position: relative;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 /* Obrazek startowy */
@@ -170,4 +92,116 @@ input:focus{
 
 .form-control {
     margin-bottom: 20px;
+}
+
+/* Aktualności, Galeria, Zawodnicy */
+
+.news, .gallery, .members{
+    min-height:100%;
+    color: rgb(48,50,59);
+    background-color: white;
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.news, .gallery, .members h1 {
+    margin-bottom: 50px;
+}
+
+.news img {
+    float: right;
+    max-height: 200px;
+}
+
+.members {
+    text-align: center;
+}
+
+.members img {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+table td {
+    vertical-align: middle !important;
+}
+
+/* Panel użytkownika */
+
+.user_panel{
+    min-height:100%;
+    color: rgb(48,50,59);
+    background-color: white;
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.panel_window{
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    -webkit-box-shadow: 0px 6px 34px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 34px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 34px -1px rgba(0,0,0,0.75);
+}
+
+#sections {
+    padding: 40px;
+}
+
+.button {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.button:hover {
+    background-color: rgba(235, 235, 235, 0.9);
+}
+
+/* Panel zarządzania aktualnościami */
+
+.newsButtons button {
+    border: none;
+    color: black;
+    padding: 6px 2px;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100px;
+}
+
+/* Nowy wpis */
+
+.newArticle input, textarea{
+    padding: 5px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.titleInput {
+    height: 50px;
+}
+
+.contentInput {
+    height: 400px !important;
+}
+
+/* Galeria zdjęć */
+
+.modal-dialog {
+    height: 75%;
+    max-height: 75vh;
 }
