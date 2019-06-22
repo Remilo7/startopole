@@ -122,46 +122,11 @@
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>
 <script type="text/javascript" src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" />"> </script>
+<script type="text/javascript" src="<c:url value="/resources/static/js/affix.js" />"> </script>
 
 <!-- Navbar Affix -->
 <script type="text/javascript">
     window.onscroll = function() {myFunction()};
-
-    var header = document.getElementById("nav");
-    var sticky = header.offsetTop;
-    var sticked = false;
-    function myFunction() {
-
-        if (window.pageYOffset > header.offsetTop) {
-            header.classList.add("sticky");
-            sticked = true;
-        }
-        if (window.pageYOffset < sticky && sticked){
-            header.classList.remove("sticky");
-            sticked = false;
-        }
-    }
-    function stickyUpdate() {
-        console.log(sticky);
-        header.classList.remove("sticky");
-        sticky = header.offsetTop;
-        myFunction()
-    }
-</script>
-
-<!-- Smooth Scroll -->
-<script type="text/javascript">
-    $("#nav ul li a[href^='#']").on('click', function(e) {
-        e.preventDefault();
-
-        var hash = this.hash;
-
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 300, function(){
-            window.location.hash = hash;
-        });
-    });
 </script>
 
 </body>

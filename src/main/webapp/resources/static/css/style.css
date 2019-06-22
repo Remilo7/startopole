@@ -93,14 +93,25 @@ p {
 /* Tło rozwijanej części */
 
 .dropdown-menu {
-    background: rgba(255,255,255,0.8);
-    background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0.8)), color-stop(0%, rgba(246,246,246,0.8)), color-stop(100%, rgba(247,247,247,0.34)));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: -o-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: -ms-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(246,246,246,0.8) 0%, rgba(247,247,247,0.34) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7', GradientType=0 );
+    background: rgba(76,76,76,0.9);
+}
+
+.dropdown-menu > li > a {
+    color: rgba(255,255,255,0.8);
+    font-size: 90%;
+}
+
+.dropdown-menu > .active > a {
+    background-color: black;
+}
+
+.dropdown-menu > .active > a:hover {
+    background-color: black;
+}
+
+.dropdown-menu > li > a:hover {
+    color: rgba(255,255,255,1) !important;
+    background-color: rgba(255,255,255,0);
 }
 
 .no-padding{
@@ -148,64 +159,32 @@ p {
 }
 
 #section1 {
-    padding-top:50px;
-    padding-bottom: 80px;
     min-height:100%;
     color: rgb(48,50,59);
     background-color: white;
-
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 90%);
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 90%);
 }
 
 #section2 {
-    padding-top:250px;
-    padding-bottom: 300px;
     min-height:100%;
     color: rgb(48,50,59);
     background-color: white;
-
-    -webkit-clip-path: polygon(
-            0 10%,
-            100% 10vw,
-            100% 90%,
-            0 calc(100% - 10vw));
-    clip-path: polygon(0 10%, 100% 10vw, 100% 90%, 0 calc(100% - 10vw));
 }
 
 #section3 {
-    padding-top:200px;
-    padding-bottom: 200px;
     min-height: 100%;
     color: rgb(48,50,59);
     background-color: white;
-
-    -webkit-clip-path: polygon(
-            0 10%,
-            100% 10vw,
-            100% calc(100% - 10vw),
-            0 90%);
-    clip-path: polygon(0 10%, 100% 10vw, 100% calc(100% - 10vw), 0 90%);
 }
 
-#section4 {padding-top:125px;
-    height:900px;
+#section4 {
     color: rgb(48,50,59);
     background-color: white;
-
-    -webkit-clip-path: polygon(0 10%, 100% 10vw, 100% calc(100% - 10vw), 0 90%);
-    clip-path: polygon(0 10%, 100% 10vw, 100% calc(100% - 10vw), 0 90%);
 }
 
 #section5 {
-    padding-top:200px;
-    padding-bottom: 100px;
     min-height: 100%;
     color: rgb(48,50,59);
     background-color: white;
-
-    -webkit-clip-path: polygon(0 10%, 100% 10vw, 100% 100%, 0 100%);
-    clip-path: polygon(0 10%, 100% 10vw, 100% 100%, 0 100%);
 }
 
 /* Wersja mobilna */
@@ -220,4 +199,82 @@ p {
         position: fixed !important;
         top: 0 !important;
     }
+
+    #section1 {
+        padding-top:50px;
+        padding-bottom: 100px;
+        min-height:100%;
+        color: rgb(48,50,59);
+        background-color: white;
+    }
+
+    #section2 {
+        padding-bottom: 100px;
+    }
+
+    #section3 {
+        padding-bottom: 100px;
+    }
+
+    #section4 {
+        padding-bottom: 100px;
+        height: auto;
+    }
+
+    #section5 {
+        padding-bottom: 100px;
+    }
+}
+
+/* Wersja desktopowa */
+
+@media only screen and (min-width: 601px) {
+
+    #section1 {
+        padding-top:50px;
+        padding-bottom: 80px;
+
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 90%);
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 90%);
+    }
+
+    #section2 {
+        padding-top:250px;
+        padding-bottom: 300px;
+
+        -webkit-clip-path: polygon(
+                0 10%,
+                100% 10vw,
+                100% 90%,
+                0 calc(100% - 10vw));
+        clip-path: polygon(0 10%, 100% 10vw, 100% 90%, 0 calc(100% - 10vw));
+    }
+
+    #section3 {
+        padding-top:200px;
+        padding-bottom: 200px;
+
+        -webkit-clip-path: polygon(
+                0 10%,
+                100% 10vw,
+                100% calc(100% - 10vw),
+                0 90%);
+        clip-path: polygon(0 10%, 100% 10vw, 100% calc(100% - 10vw), 0 90%);
+    }
+
+    #section4 {padding-top:125px;
+        min-height: 100%;
+
+        -webkit-clip-path: polygon(0 10%, 100% 10vw, 100% calc(100% - 10vw), 0 90%);
+        clip-path: polygon(0 10%, 100% 10vw, 100% calc(100% - 10vw), 0 90%);
+    }
+
+    #section5 {
+        padding-top:200px;
+        padding-bottom: 100px;
+
+        -webkit-clip-path: polygon(0 10%, 100% 10vw, 100% 100%, 0 100%);
+        clip-path: polygon(0 10%, 100% 10vw, 100% 100%, 0 100%);
+    }
+
 }
