@@ -122,7 +122,6 @@ p {
 
 .caption p, a {
     text-align: center;
-    justify-content: space-between;
     height: 100%;
 }
 
@@ -133,6 +132,10 @@ p {
 
 .thumbMargin {
     margin-bottom: 15px;
+}
+
+.row:before, row:after {
+    display: inline-block;
 }
 
 /* Kolejne sekcje strony */
