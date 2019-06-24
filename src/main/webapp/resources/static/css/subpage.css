@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-/* Główny Navbar */
-
-#nav {
-    z-index: 99;
-    position: relative;
-    top: auto;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
-
 /* Obrazek startowy */
 
 #bg_div {
@@ -204,4 +193,17 @@ table td {
 .modal-dialog {
     height: 75%;
     max-height: 75vh;
+}
+
+/* Wersja desktopowa */
+
+@media only screen and (min-width: 601px) {
+
+    /* Główny Navbar */
+
+    #nav {
+        position: relative;
+        top: auto;
+        bottom: 0;
+    }
 }
