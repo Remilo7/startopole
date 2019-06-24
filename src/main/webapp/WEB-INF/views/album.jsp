@@ -13,9 +13,12 @@
 
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
+    <link href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />" rel="stylesheet">
+    <link href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/subpage.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/static/css/buttons.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/gallery.css" />" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
 
@@ -73,66 +76,31 @@
         <div class="col-md-8 text-center">
             <h1 class="news">${gallery.name}</h1>
 
-            <c:forEach begin="0" end="${gallery.amount-1}" varStatus="loop">
-                <div class="col-lg-3 col-sm-4 col-xs-6">
-                    <a href="#"><img class="thumbnail img-responsive" src="<c:url value="${'/resources/uploaded/galleries/gallery'.concat(gallery.id).concat('/img_').concat(loop.index).concat('.jpg')}" />" alt="image"></a>
-                </div>
-            </c:forEach>
+            <article class='gallery'>
+                <c:forEach begin="0" end="${gallery.amount-1}" varStatus="loop">
+                    <a class='gallery-link' href='<c:url value="${'/resources/uploaded/galleries/gallery'.concat(gallery.id).concat('/img_').concat(loop.index).concat('.jpg')}" />'>
+                        <figure class='gallery-image'>
+                            <img src='<c:url value="${'/resources/uploaded/galleries/gallery'.concat(gallery.id).concat('/img_').concat(loop.index).concat('.jpg')}" />'>
+                        </figure>
+                    </a>
+                </c:forEach>
+            </article>
 
-        </div>
-    </div>
-</div>
-
-<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close" type="button" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-red btn-border" data-dismiss="modal">Zamknij</button>
-            </div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>
 <script type="text/javascript" src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" />"> </script>
+<script type="text/javascript" src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" />"> </script>
+<script type="text/javascript" src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" />"> </script>
 <script type="text/javascript" src="<c:url value="/resources/static/js/affix.js" />"> </script>
+<script type="text/javascript" src="<c:url value="/resources/static/js/gallery.js" />"> </script>
+<script type="text/javascript" src="<c:url value="/resources/static/js/gallery-2.js" />"> </script>
 
 <!-- Navbar Affix -->
 <script type="text/javascript">
     window.onscroll = function() {myFunction()};
-</script>
-
-<!-- Smooth Scroll -->
-<script type="text/javascript">
-    $("#nav ul li a[href^='#']").on('click', function(e) {
-        e.preventDefault();
-
-        var hash = this.hash;
-
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 300, function(){
-            window.location.hash = hash;
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('.thumbnail').click(function(){
-            $('.modal-body').empty();
-            var title = $(this).parent('a').attr("title");
-            $('.modal-title').html(title);
-            $($(this).parents('div').html()).appendTo('.modal-body');
-            $('#myModal').modal({show:true});
-        });
-    });
 </script>
 
 </body>
