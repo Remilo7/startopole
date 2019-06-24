@@ -52,13 +52,16 @@ Spring MVC webapp of fencing club, presenting details of the club, helping admin
       
 ## Running the application locally
 
-You need the Tomcat server and installed Maven. 
+You need to have installed Java and Maven. 
 Enter the directory where you downloaded the code and run:
 ```
-maven package
+mvn package
 ```
-The directory target will be created and file startopole-1.0.war inside it.
-Copy and paste it into the webapps folder inside Tomcat directory. 
-Run the Tomcat server.
-After few seconds, the web application is available on http://localhost:8080/startopole_war/
+And then 
+```
+java -jar target/dependency/webapp-runner.jar target/*.war
+```
+After few seconds, the web application is available on http://localhost:8080/
+
+You can also check it on https://startopole.herokuapp.com
 
