@@ -25,18 +25,8 @@ p {
 
 #nav {
     z-index: 99;
-    position: absolute;
-    top: auto;
-    bottom: 0;
     right: 0;
     left: 0;
-}
-
-.sticky {
-    position: fixed !important;
-    top: 0 !important;
-    bottom: auto !important;
-    width: 100%;
 }
 
 .navbar {
@@ -191,14 +181,20 @@ p {
 
 @media only screen and (max-width: 600px) {
 
+    /* Obrazek w nagłówku */
+
     #bg_div {
         display: none;
     }
 
+    /* Navbar */
+
     #nav {
-        position: fixed !important;
-        top: 0 !important;
+        position: fixed;
+        top: 0;
     }
+
+    /* Sekcje strony */
 
     #section1 {
         padding-top:50px;
@@ -229,6 +225,23 @@ p {
 /* Wersja desktopowa */
 
 @media only screen and (min-width: 601px) {
+
+    /* Navbar */
+
+    #nav {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+    }
+
+    .sticky {
+        position: fixed !important;
+        top: 0 !important;
+        bottom: auto !important;
+        width: 100%;
+    }
+
+    /* Sekcje strony */
 
     #section1 {
         padding-top:50px;
