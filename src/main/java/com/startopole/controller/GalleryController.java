@@ -46,6 +46,19 @@ public class GalleryController {
         return "album";
     }
 
+    @RequestMapping("/editGallery")
+    public String editGallery(Map<String, Object> map){
+
+        Gallery gallery = new Gallery();
+        gallery.setName(galleryToEdit.getName());
+        gallery.setId(galleryToEdit.getId());
+        gallery.setAdded_date(galleryToEdit.getAdded_date());
+
+        map.put("gallery", gallery);
+        map.put("old_gallery",galleryToEdit);
+        return "editGallery";
+    }
+
     @RequestMapping("/newGallery")
     public String newGallery(Map<String, Object> map){
 
