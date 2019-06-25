@@ -73,7 +73,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 newArticle">
 
-                <form:input type="text" class="form-control titleInput" path="name" placeholder="Nazwa galerii" />
+                <form:input type="text" class="form-control titleInput" path="name" placeholder="Nazwa galerii" maxlength="20" />
 
                 <input name="files" id="filesToUpload" type="file" multiple="multiple" />
 

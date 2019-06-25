@@ -81,11 +81,11 @@
         <div class="card-body">
             <form:form action="addUser" method="post" modelAttribute="registrationviewmodel">
                 <div class="form-group">
-                    <form:input type="text" path="userName" class="form-control" placeholder="Nazwa użytkownika" required="required" />
-                    <form:input type="email" path="email" class="form-control" placeholder="Adres e-mail" required="required" />
-                    <form:input type="password" path="password" class="form-control" placeholder="Hasło" required="required" />
-                    <form:input type="text" class="form-control" path="name" placeholder="Imię" required="required" />
-                    <form:input type="text" class="form-control" path="surname" placeholder="Nazwisko" required="required" />
+                    <form:input type="text" path="userName" class="form-control" placeholder="Nazwa użytkownika" required="required" maxlength="36" />
+                    <form:input type="email" path="email" class="form-control" placeholder="Adres e-mail" required="required" maxlength="50" />
+                    <form:input type="password" path="password" class="form-control" placeholder="Hasło" required="required" maxlength="100" />
+                    <form:input type="text" class="form-control" path="name" placeholder="Imię" required="required" maxlength="20" />
+                    <form:input type="text" class="form-control" path="surname" placeholder="Nazwisko" required="required" maxlength="40" />
                     <form:input type="date" class="form-control" path="bir_date" placeholder="Data urodzenia: DD.MM.RRRR" required="required" />
                     <form:input type="tel" class="form-control" path="phone" pattern="^[2-9]\d{2}-\d{3}-\d{3}$" maxlength="11" placeholder="Telefon kontaktowy" required="required" id="txtnumber" />
                 </div>

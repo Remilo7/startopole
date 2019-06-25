@@ -75,7 +75,7 @@
 
                 <form:input type="text" class="hidden" path="id" value="${old_gallery.id}"/>
                 <form:input type="text" class="hidden" path="added_date" value="${old_gallery.added_date}"/>
-                <form:input type="text" class="form-control titleInput" path="name" placeholder="Nazwa galerii" />
+                <form:input type="text" class="form-control titleInput" path="name" placeholder="Nazwa galerii" maxlength="20" />
 
                 <input name="files" id="filesToUpload" type="file" multiple="multiple" />
 

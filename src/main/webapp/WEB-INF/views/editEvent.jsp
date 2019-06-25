@@ -77,7 +77,7 @@
 
                 <form:input type="text" class="hidden" path="id" value="${old_event.id}"/>
                 <form:input type="text" class="hidden" path="calendar" value="${old_event.calendar}"/>
-                <form:input type="text" class="form-control titleInput" path="eventName" value="${old_event.eventName}" />
+                <form:input type="text" class="form-control titleInput" path="eventName" value="${old_event.eventName}" maxlength="50" />
                 <form:input type="date" class="form-control" path="date" placeholder="Data" value="${old_event.date}" />
 
                 <b>Kategoria</b>

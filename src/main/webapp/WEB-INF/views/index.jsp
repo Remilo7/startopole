@@ -135,7 +135,7 @@
 
                 <div class="col-xs-6 col-md-3">
                     <div class="thumbnail">
-                        <img src="<c:url value="${'/resources/uploaded/galleries/gallery'.concat(gallery.id).concat('/img_').concat(loop.index).concat('.jpg')}" />" alt="image">
+                        <img src="<c:url value="${'/resources/uploaded/galleries/gallery'.concat(gallery.id).concat('/img_0.jpg')}" />" alt="gallery">
                         <div class="caption">
                             <a href="album?galleryId=${gallery.id}">${gallery.name}</a>
                         </div>

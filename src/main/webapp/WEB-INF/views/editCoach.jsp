@@ -76,7 +76,7 @@
             <div class="col-md-6 newArticle">
 
                 <form:input type="text" class="hidden" path="id" value="${old_section.id}"/>
-                <form:input type="text" class="form-control titleInput" path="header" value="${old_section.header}"/>
+                <form:input type="text" class="form-control titleInput" path="header" value="${old_section.header}" maxlength="150"/>
                 <form:textarea class="form-control contentInput" path="content" />
                 <input name="file" id="fileToUpload" type="file" />
 

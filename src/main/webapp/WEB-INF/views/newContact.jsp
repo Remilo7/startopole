@@ -75,7 +75,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 newArticle">
 
-                <form:input type="text" class="form-control titleInput" path="header" placeholder="Nagłówek akapitu" />
+                <form:input type="text" class="form-control titleInput" path="header" placeholder="Nagłówek akapitu" maxlength="150" />
                 <form:textarea class="form-control contentInput" path="content" placeholder="Treść..." />
 
             </div>

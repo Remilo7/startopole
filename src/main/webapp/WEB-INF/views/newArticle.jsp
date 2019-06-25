@@ -75,7 +75,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 newArticle">
 
-                <form:input type="text" class="form-control titleInput" path="title" placeholder="Tytuł" />
+                <form:input type="text" class="form-control titleInput" path="title" placeholder="Tytuł" maxlength="80" />
                 <form:textarea class="form-control contentInput" path="content" placeholder="Treść..." />
                 <input name="file" id="fileToUpload" type="file" />
 

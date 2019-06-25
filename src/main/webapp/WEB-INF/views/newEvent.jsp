@@ -75,7 +75,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 newArticle">
 
-                <form:input type="text" class="form-control titleInput" path="eventName" placeholder="Nazwa" />
+                <form:input type="text" class="form-control titleInput" path="eventName" placeholder="Nazwa" maxlength="50" />
                 <form:input type="date" class="form-control" path="date" placeholder="Data" />
 
                 <b>Kategoria</b>

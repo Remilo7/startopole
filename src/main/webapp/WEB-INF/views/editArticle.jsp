@@ -76,7 +76,7 @@
 
                 <form:input type="text" class="hidden" path="id" value="${old_article.id}"/>
                 <form:input type="text" class="hidden" path="added_date" value="${old_article.added_date}"/>
-                <form:input type="text" class="form-control titleInput" path="title" value="${old_article.title}"/>
+                <form:input type="text" class="form-control titleInput" path="title" value="${old_article.title}" maxlength="80"/>
                 <form:textarea class="form-control contentInput" path="content" />
                 <input name="file" id="fileToUpload" type="file" />
 
