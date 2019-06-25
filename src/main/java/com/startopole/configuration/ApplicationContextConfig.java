@@ -5,6 +5,8 @@ import javax.sql.DataSource;
 import com.startopole.dao.UserInfoDAO;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.support.ErrorPageFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -81,6 +83,19 @@ public class ApplicationContextConfig {
     @Bean(name = "multipartResolver")
     public CommonsMultipartResolver multipartResolver() {
         return new CommonsMultipartResolver();
+    }
+
+    @Bean
+    public ErrorPageFilter errorPageFilter() {
+        return new ErrorPageFilter();
+    }
+
+    @Bean
+    public FilterRegistrationBean disableSpringBootErrorFilter(ErrorPageFilter filter) {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+        filterRegistrationBean.setFilter(filter);
+        filterRegistrationBean.setEnabled(false);
+        return filterRegistrationBean;
     }
 
     private final Properties hibernateProperties() {
