@@ -8,6 +8,17 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Strona Główna</title>
+
+        <meta property="og:title" content="UKS START OPOLE">
+        <meta property="og:site_name" content="UKS START OPOLE">
+        <meta property="og:url" content="http://startopole.herokuapp.com/">
+        <meta property="og:description" content="Strona klubu szermierczego UKS Start Opole">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="http://tiny.cc/4e0s8y">
+
+        <meta charset="UTF-8">
+        <meta name="description" content="Strona klubu szermierczego UKS Start Opole">
+        <meta name="keywords" content="szermierka, opole, klub, fencing, szpada, sport">
         
         <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
         <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">
