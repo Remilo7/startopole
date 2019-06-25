@@ -85,19 +85,6 @@ public class ApplicationContextConfig {
         return new CommonsMultipartResolver();
     }
 
-    @Bean
-    public ErrorPageFilter errorPageFilter() {
-        return new ErrorPageFilter();
-    }
-
-    @Bean
-    public FilterRegistrationBean disableSpringBootErrorFilter(ErrorPageFilter filter) {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-        filterRegistrationBean.setFilter(filter);
-        filterRegistrationBean.setEnabled(false);
-        return filterRegistrationBean;
-    }
-
     private final Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty(
