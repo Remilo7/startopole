@@ -7,6 +7,7 @@ import com.startopole.services.FencerService;
 import com.startopole.services.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -63,8 +64,12 @@ public class RegistrationController {
             UserInfo tempUserInfo = new UserInfo(user.getUserName(), passwordRegistrationEncoder().encode(user.getPassword()));
             Fencer tempFencer = new Fencer(user.getUserName(), user.getEmail(), user.getName(), user.getSurname(), finalDate, user.getPhone());
 
-            userInfoService.add(tempUserInfo);
-            fencerService.add(tempFencer);
+            try {
+                userInfoService.add(tempUserInfo);
+                fencerService.add(tempFencer);
+            } catch (DataIntegrityViolationException e) {
+                return "redirect:/registration?error=true";
+            }
         }
 
         return "redirect:/index";

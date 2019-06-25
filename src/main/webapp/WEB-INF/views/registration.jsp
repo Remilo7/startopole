@@ -66,9 +66,18 @@
 <div class="container col-sm-12">
     <div class="col-md-4"></div>
     <div class="card col-md-4">
+
         <div class="card-header">
             <h3>Rejestracja</h3>
         </div>
+
+        <!-- /registration?error=true -->
+        <c:if test="${param.error == 'true'}">
+            <div style="color:red;margin:10px 0px;">
+                Użytkownik o podanej nazwie istnieje już w bazie
+            </div>
+        </c:if>
+
         <div class="card-body">
             <form:form action="addUser" method="post" modelAttribute="registrationviewmodel">
                 <div class="form-group">
@@ -77,8 +86,8 @@
                     <form:input type="password" path="password" class="form-control" placeholder="Hasło" required="required" />
                     <form:input type="text" class="form-control" path="name" placeholder="Imię" required="required" />
                     <form:input type="text" class="form-control" path="surname" placeholder="Nazwisko" required="required" />
-                    <form:input type="date" class="form-control" path="bir_date" placeholder="Data urodzenia" required="required" />
-                    <form:input type="tel" class="form-control" path="phone" pattern="^[2-9]\d{2}-\d{3}-\d{3}$" placeholder="Telefon kontaktowy" required="required" />
+                    <form:input type="date" class="form-control" path="bir_date" placeholder="Data urodzenia: DD.MM.RRRR" required="required" />
+                    <form:input type="tel" class="form-control" path="phone" pattern="^[2-9]\d{2}-\d{3}-\d{3}$" maxlength="11" placeholder="Telefon kontaktowy" required="required" id="txtnumber" />
                 </div>
 
                 <div class="text-center">
@@ -102,6 +111,28 @@
 <!-- Navbar Affix -->
 <script type="text/javascript">
     window.onscroll = function() {myFunction()};
+</script>
+
+<!-- Automatyczne dodawanie myślników w numerze telefonu -->
+<script type="text/javascript">
+    $(function () {
+
+        $('#txtnumber').keydown(function (e) {
+            var key = e.charCode || e.keyCode || 0;
+            $text = $(this);
+            if (key !== 8 && key !== 9) {
+                if ($text.val().length === 3) {
+                    $text.val($text.val() + '-');
+                }
+                if ($text.val().length === 7) {
+                    $text.val($text.val() + '-');
+                }
+
+            }
+
+            return (key == 8 || key == 9 || key == 46 || (key >= 48 && key <= 57) || (key >= 96 && key <= 105));
+        })
+    });
 </script>
 
 </body>
