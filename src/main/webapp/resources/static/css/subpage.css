@@ -85,7 +85,7 @@ input:focus{
 
 /* Aktualności, Galeria, Zawodnicy */
 
-.news, .gallery, .members{
+.news, .galleries, .members{
     min-height:100%;
     color: rgb(48,50,59);
     background-color: white;

@@ -8,7 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="72f61d8b-55b9-49a1-b282-c73a5e372f5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/startopole/controller/GalleryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/startopole/controller/GalleryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/galleries.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/galleries.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/static/css/subpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/static/css/subpage.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -60,10 +61,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/startopole/controller/GalleryController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/403Page.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+            <state relative-caret-position="135">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -116,7 +117,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/coachPanel.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/contact_management.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/events_management.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/galleries.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/galleries_management.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/history_management.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
@@ -132,7 +132,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/static/js/gallery.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/static/js/gallery-2.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/album.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/static/css/subpage.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/startopole/services/impl/UserInfoServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/startopole/services/UserInfoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/startopole/controller/RegistrationController.java" />
@@ -160,6 +159,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newTraining.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registration.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/startopole/controller/GalleryController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/static/css/subpage.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/galleries.jsp" />
       </list>
     </option>
   </component>
@@ -358,7 +359,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561488396364" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561489786416" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="E:/Pobrane/slf4j-1.7.26/slf4j-1.7.26/slf4j-simple-1.7.26.jar!/" />
@@ -936,11 +937,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561488358254</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Fixed uploading files during editing gallery">
+      <created>1561489060376</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1561489060376</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="391049000" />
+    <option name="totallyTimeSpent" value="391497000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1081,7 +1089,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/Documents/PWR/VI Semestr/ZTW" />
     </ignored-roots>
-    <MESSAGE value="Improved navbar affix." />
     <MESSAGE value="Gallery, user management, partial sections management." />
     <MESSAGE value="Members management" />
     <MESSAGE value="Contact management" />
@@ -1106,30 +1113,10 @@
     <MESSAGE value="ErrorPageFilter enable again" />
     <MESSAGE value="Added gallery edit" />
     <MESSAGE value="Set max lenghts of inputs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set max lenghts of inputs" />
+    <MESSAGE value="Fixed uploading files during editing gallery" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed uploading files during editing gallery" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/members_management.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="126" column="9" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newCoachMessage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/trainings_management.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="126" column="9" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userPanel.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="633">
@@ -1193,13 +1180,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/static/css/subpage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3120">
-          <caret line="208" column="1" lean-forward="true" selection-start-line="208" selection-start-column="1" selection-end-line="208" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/coaches.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1558">
@@ -1246,13 +1226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="83" column="15" lean-forward="true" selection-start-line="83" selection-start-column="15" selection-end-line="83" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newMessage.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="503">
@@ -1290,13 +1263,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/static/css/index_style.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4380">
-          <caret line="292" column="64" selection-start-line="292" selection-start-column="64" selection-end-line="292" selection-end-column="64" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/startopole/configuration/ApplicationContextConfig.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1434,10 +1400,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/uploaded/img_4.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/startopole/controller/GalleryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/static/css/subpage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/galleries.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="79" column="69" lean-forward="true" selection-start-line="79" selection-start-column="69" selection-end-line="79" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
+        <state relative-caret-position="358">
           <caret line="137" column="148" selection-start-line="137" selection-start-column="148" selection-end-line="137" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/startopole/configuration/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="100" column="80" lean-forward="true" selection-start-line="100" selection-start-column="80" selection-end-line="100" selection-end-column="80" />
         </state>
       </provider>
     </entry>
@@ -1448,13 +1452,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/uploaded/img_4.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/startopole/controller/GalleryController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="1950">
+          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/403Page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
