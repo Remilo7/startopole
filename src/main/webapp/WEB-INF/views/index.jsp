@@ -133,7 +133,7 @@
 
             <c:forEach begin="0" end="3" items="${galleryList}" var="gallery" varStatus="loop">
 
-                <div class="col-xs-6 col-md-3">
+                <div class="col-xs-6 col-md-3 thumbMargin">
                     <div class="thumbnail">
                         <img src="<c:url value="${'/resources/uploaded/galleries/gallery'.concat(gallery.id).concat('/img_0.jpg')}" />" alt="gallery">
                         <div class="caption">

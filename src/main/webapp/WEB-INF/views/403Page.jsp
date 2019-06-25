@@ -55,7 +55,13 @@
                         <li><a href="index#section3">Treningi</a></li>
                         <li><a href="index#section4">Galeria</a></li>
                         <li><a href="index#section5">Kontakt</a></li>
-                        <li class="active"><a href="login"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+                        <c:if test="${pageContext.request.userPrincipal.name == null}">
+                            <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+                        </c:if>
+                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                            <li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
+                            <li><a href="panel">Panel</a></li>
+                        </c:if>
                     </ul>
                 </div>
             </div>
