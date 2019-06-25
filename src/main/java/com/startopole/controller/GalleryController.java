@@ -98,7 +98,7 @@ public class GalleryController {
             galleryService.edit(gallery);
             galleryResult = gallery;
 
-            int fileid = ((Gallery)(galleryService.getAllGalleries().get(0))).getId();
+            int fileid = gallery.getId();
             fileUpload(files, session, fileid);
 
         } else if ("delete".equals(action.toLowerCase())) {
