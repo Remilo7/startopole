@@ -69,9 +69,9 @@
             <h1>Szczegółowe dane</h1>
         </div>
     </div>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 panel_window">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 panel_window">
 
             <c:forEach items="${fencerList}" var="fencer">
                 <table class="table table-hover table-responsive">
@@ -109,8 +109,19 @@
                 <hr>
             </c:forEach>
 
+        </div>
+    </div>
+
+    <form:form action="messages.do" method="post">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 no-padding">
+                <div class="col-md-6 newsButtons">
+                    <button class="btn btn-navy btn-border pull-left" name="action" value="Back">Wstecz</button></a>
+                </div>
             </div>
         </div>
+    </form:form>
 </div>
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>

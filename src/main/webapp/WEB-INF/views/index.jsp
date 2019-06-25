@@ -18,7 +18,7 @@
 
         <meta charset="UTF-8">
         <meta name="description" content="Strona klubu szermierczego UKS Start Opole">
-        <meta name="keywords" content="szermierka, opole, klub, fencing, szpada, sport">
+        <meta name="keywords" content="szermierka, start, opole, klub, fencing, szpada, sport">
         
         <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />" rel="stylesheet">
         <link href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" />" rel="stylesheet">

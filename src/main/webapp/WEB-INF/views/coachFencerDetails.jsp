@@ -111,6 +111,17 @@
 
         </div>
     </div>
+
+    <form:form action="coachMessages.do" method="post">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 no-padding">
+                <div class="col-md-6 newsButtons">
+                    <button class="btn btn-navy btn-border pull-left" name="action" value="Back">Wstecz</button></a>
+                </div>
+            </div>
+        </div>
+    </form:form>
 </div>
 
 <script type="text/javascript" src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />"> </script>
