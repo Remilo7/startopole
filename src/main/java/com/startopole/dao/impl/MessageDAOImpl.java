@@ -27,17 +27,17 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     public List getAllMessage() {
-        return session.getCurrentSession().createQuery("FROM Message ORDER BY id DESC").list();
+        return session.getCurrentSession().createQuery("FROM Message ORDER BY added_date DESC").list();
     }
 
     public List getAllFencerMessage(String username) {
-        String sql = "FROM Message  WHERE receiver.userName='"+username+"' ORDER BY id DESC";
+        String sql = "FROM Message  WHERE receiver.userName='"+username+"' ORDER BY added_date DESC";
 
         return session.getCurrentSession().createQuery(sql).list();
     }
 
     public List getSenderMessages(String username) {
-        String sql = "FROM Message  WHERE sender.userName='"+username+"' ORDER BY id DESC";
+        String sql = "FROM Message  WHERE sender.userName='"+username+"' ORDER BY added_date DESC";
 
         return session.getCurrentSession().createQuery(sql).list();
     }

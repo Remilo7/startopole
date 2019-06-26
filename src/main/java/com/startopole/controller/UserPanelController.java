@@ -75,11 +75,11 @@ public class UserPanelController {
         for (Message mes:tempMessages) {
 
             if (mes.getCategory().equalsIgnoreCase("aktualnosci")){
-                listAktualnosci.add(new MessageViewModel(findSenderName(mes.getSender().getUserName()), mes.getContent()));
+                listAktualnosci.add(new MessageViewModel(findSenderName(mes.getSender().getUserName()), mes.getContent(), mes.getAdded_date()));
             }
 
             else {
-                listPrzypomnienia.add(new MessageViewModel(findSenderName(mes.getSender().getUserName()), mes.getContent()));
+                listPrzypomnienia.add(new MessageViewModel(findSenderName(mes.getSender().getUserName()), mes.getContent(), mes.getAdded_date()));
             }
         }
 

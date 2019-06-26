@@ -1,6 +1,7 @@
 package com.startopole.model.entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "MESSAGES")
@@ -22,6 +23,9 @@ public class Message {
 
     @Column
     private String content;
+
+    @Column(insertable=false)
+    private Timestamp added_date;
 
     public Message() {
     }
@@ -71,5 +75,13 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Timestamp getAdded_date() {
+        return added_date;
+    }
+
+    public void setAdded_date(Timestamp added_date) {
+        this.added_date = added_date;
     }
 }

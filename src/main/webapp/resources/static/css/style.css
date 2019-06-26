@@ -199,6 +199,14 @@ p {
 
     /* Sekcje strony */
 
+    #mobile_section {
+        text-align: center;
+        color: rgb(48,50,59);
+        background-color: white;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
     #section1 {
         padding-top:50px;
         padding-bottom: 100px;
@@ -245,6 +253,10 @@ p {
     }
 
     /* Sekcje strony */
+
+    #mobile_section {
+        display: none;
+    }
 
     #section1 {
         padding-top:50px;

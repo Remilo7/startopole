@@ -1,5 +1,8 @@
 package com.startopole.model.viewModel;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
 public class MessageViewModel {
 
     private int id;
@@ -7,20 +10,23 @@ public class MessageViewModel {
     private String receiver;
     private String category;
     private String content;
+    private Timestamp added_date;
 
     public MessageViewModel() {
     }
 
-    public MessageViewModel(int id, String receiver, String category, String content) {
+    public MessageViewModel(int id, String receiver, String category, String content, Timestamp added_date) {
         this.id = id;
         this.receiver = receiver;
         this.category = category;
         this.content = content;
+        this.added_date = added_date;
     }
 
-    public MessageViewModel(String sender, String content) {
+    public MessageViewModel(String sender, String content, Timestamp added_date) {
         this.sender = sender;
         this.content = content;
+        this.added_date = added_date;
     }
 
     public String getReceiver() {
@@ -61,5 +67,13 @@ public class MessageViewModel {
 
     public void setSender(String sender) {
         this.sender = sender;
+    }
+
+    public Timestamp getAdded_date() {
+        return added_date;
+    }
+
+    public void setAdded_date(Timestamp added_date) {
+        this.added_date = added_date;
     }
 }

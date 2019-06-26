@@ -88,6 +88,7 @@
                         <tr>
                             <th>Nadawca</th>
                             <th>Treść</th>
+                            <th>Data otrzymania</th>
                         </tr>
                         </thead>
 
@@ -96,6 +97,7 @@
                         <tr>
                             <td>${message.sender}</td>
                             <td>${message.content}</td>
+                            <td>${message.added_date}</td>
                         </tr>
                         </tbody>
                         </c:forEach>
@@ -110,6 +112,7 @@
                         <tr>
                             <th>Nadawca</th>
                             <th>Treść</th>
+                            <th>Data otrzymania</th>
                         </tr>
                         </thead>
 
@@ -118,6 +121,7 @@
                             <tr>
                                 <td>${message.sender}</td>
                                 <td>${message.content}</td>
+                                <td>${message.added_date}</td>
                             </tr>
                             </tbody>
                         </c:forEach>

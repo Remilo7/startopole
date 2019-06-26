@@ -77,6 +77,13 @@
     <!-- Treść strony -->
 
     <div id="section0" class="container-fluid"></div>
+
+    <div id="mobile_section" class="container-fluid">
+        <h3>Klub szermierczy</h3>
+        <h1>UKS START OPOLE</h1>
+        <img src="<c:url value="${'/resources/static/img/logo.jpg'}" />" alt="logo" class="img-responsive center">
+    </div>
+
     <div id="section1" class="container-fluid">
 
         <h1>Aktualności</h1>

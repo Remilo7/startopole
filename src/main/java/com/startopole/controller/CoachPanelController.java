@@ -81,7 +81,7 @@ public class CoachPanelController {
 
         for (Message mes:tempMessages) {
             String tempName = fencerService.getFencer(mes.getReceiver().getUserName()).getName()+" "+fencerService.getFencer(mes.getReceiver().getUserName()).getSurname();
-            sentMessages.add(new MessageViewModel(mes.getId(), tempName, mes.getCategory(), mes.getContent()));
+            sentMessages.add(new MessageViewModel(mes.getId(), tempName, mes.getCategory(), mes.getContent(), mes.getAdded_date()));
         }
 
         map.put("coach_name", temp);

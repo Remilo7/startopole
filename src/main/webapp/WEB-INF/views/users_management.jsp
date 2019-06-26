@@ -104,6 +104,7 @@
                             </c:forEach>
                         </table>
 
+                        <button class="btn btn-navy btn-border pull-left" name="action" value="Back">Wstecz</button></a>
                         <button class="btn btn-green btn-border pull-right" name="action" value="activate">Aktywuj</button>
                     </form:form>
                 </div>
@@ -132,6 +133,7 @@
                             </c:forEach>
                         </table>
 
+                        <button class="btn btn-navy btn-border pull-left" name="action" value="Back">Wstecz</button></a>
                         <button class="btn btn-red btn-border pull-right" name="action" value="deactivate">Dezaktywuj</button>
                     </form:form>
                 </div>

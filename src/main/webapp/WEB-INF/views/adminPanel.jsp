@@ -94,6 +94,7 @@
                                 <th>Odbiorca</th>
                                 <th>Kategoria</th>
                                 <th>Treść</th>
+                                <th>Data wysłania</th>
                             </tr>
                             </thead>
 
@@ -104,6 +105,7 @@
                                     <td>${message.receiver}</td>
                                     <td>${message.category}</td>
                                     <td>${message.content}</td>
+                                    <td>${message.added_date}</td>
                                 </tr>
                                 </tbody>
                             </c:forEach>
