@@ -180,6 +180,22 @@ p {
     background-color: white;
 }
 
+/* Formularze */
+
+.newArticle input, textarea{
+    padding: 5px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.titleInput {
+    height: 50px;
+}
+
+.contentInput {
+    height: 400px !important;
+}
+
 /* Wersja mobilna */
 
 @media only screen and (max-width: 600px) {
@@ -298,7 +314,7 @@ p {
     }
 
     #section5 {
-        padding-top:200px;
+        padding-top:250px;
         padding-bottom: 120px;
 
         -webkit-clip-path: polygon(0 10%, 100% 10vw, 100% 100%, 0 100%);

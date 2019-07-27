@@ -1,9 +1,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,6 +26,7 @@
         <link href="<c:url value="/resources/static/css/style.css" />" rel="stylesheet">
         <link href="<c:url value="/resources/static/css/index_style.css" />" rel="stylesheet">
         <link href="<c:url value="/resources/static/css/buttons.css" />" rel="stylesheet">
+        <link href="<c:url value="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" />" rel="stylesheet">
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="50" onresize="stickyUpdate()">
 
@@ -159,6 +161,47 @@
     <div id="section5" class="container-fluid">
         <h1>Kontakt</h1>
         <br>
+
+        <!-- Formularz kontaktowy -->
+
+        <div class="container-fluid no-padding newArticle">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 text-center">
+                    <h3>Napisz do nas</h3>
+                </div>
+            </div>
+            <form:form action="sendMessage" modelAttribute="message" method="post">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <form:input type="email" path="email" class="form-control" placeholder="Twój adres e-mail" required="required" maxlength="50" />
+                        <form:input type="text" path="topic" class="form-control" placeholder="Temat" required="required" maxlength="50" />
+                        <form:textarea class="form-control contentInput" path="content" placeholder="Treść wiadomości..." />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 no-padding text-center">
+                        <button class="btn btn-green btn-border" name="action" value="Send">Wyślij wiadomość</button>
+                    </div>
+                </div>
+            </form:form>
+
+            <div class="row social">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 text-center">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/UKS-Start-Opole-685881928164288/">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <span> - Facebook</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         <c:forEach items="${contactSectionList}" var="section">
             <h3 class="text-center">${section.header}</h3>

@@ -172,22 +172,6 @@ table td {
     width: 100px;
 }
 
-/* Nowy wpis */
-
-.newArticle input, textarea{
-    padding: 5px;
-    margin-top: 20px;
-    width: 100%;
-}
-
-.titleInput {
-    height: 50px;
-}
-
-.contentInput {
-    height: 400px !important;
-}
-
 /* Galeria zdjęć */
 
 .modal-dialog {

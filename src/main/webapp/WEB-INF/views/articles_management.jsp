@@ -98,17 +98,17 @@
         </div>
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-6 no-padding">
-                <div class="col-md-3 newsButtons">
+            <div class="col-md-6 no-padding text-center">
+                <div class="col-xs-6 col-md-3 newsButtons">
                     <button class="btn btn-navy btn-border" name="action" value="Back">Wstecz</button>
                 </div>
-                <div class="col-md-3 newsButtons">
+                <div class="col-xs-6 col-md-3 newsButtons">
                     <button class="btn btn-red btn-border" type="submit" name="action" value="Delete">Usuń</button>
                 </div>
-                <div class="col-md-3 newsButtons">
+                <div class="col-xs-6 col-md-3 newsButtons">
                     <button class="btn btn-blue btn-border" name="action" value="Rededit">Edytuj</button>
                 </div>
-                <div class="col-md-3 newsButtons">
+                <div class="col-xs-6 col-md-3 newsButtons">
                     <button class="btn btn-green btn-border" name="action" value="Redirect">Dodaj</button>
                 </div>
             </div>

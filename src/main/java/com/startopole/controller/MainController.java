@@ -2,8 +2,11 @@ package com.startopole.controller;
 
 import java.security.Principal;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
+import java.util.Properties;
 
+import com.startopole.model.entity.FormMessage;
 import com.startopole.model.entity.Gallery;
 import com.startopole.model.entity.Section;
 import com.startopole.model.viewModel.IndexViewModel;
@@ -16,8 +19,15 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import sun.jvm.hotspot.debugger.AddressException;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 @Controller
 public class MainController {
@@ -46,16 +56,17 @@ public class MainController {
         map.put("historySectionList", sectionService.getAllSections("HISTORIA"));
         map.put("trainingSectionList", sectionService.getAllSections("TRENINGI"));
         map.put("contactSectionList", sectionService.getAllSections("KONTAKT"));
+        map.put("message", new FormMessage());
         return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage(Model model ) {
+    public String loginPage() {
         return "login";
     }
 
     @RequestMapping(value = "/panel", method = RequestMethod.GET)
-    public String generalPanel(Model model) {
+    public String generalPanel() {
 
         Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>)
                 SecurityContextHolder.getContext().getAuthentication().getAuthorities();
@@ -88,5 +99,40 @@ public class MainController {
                     "You do not have permission to access this page!");
         }
         return "403Page";
+    }
+
+    @RequestMapping(value="/sendMessage", method= RequestMethod.POST)
+    public String doActions(@ModelAttribute FormMessage message, @RequestParam String action)
+            throws AddressException, MessagingException {
+
+        if ("send".equals(action.toLowerCase())) {
+
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.port", "587");
+
+            Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication("startopoletest@gmail.com", "Startopole123");
+                }
+            });
+
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(message.getEmail()));
+
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("startopoletest@gmail.com"));
+            msg.setSubject(message.getTopic());
+
+            String content = "Wiadomość od: "+message.getEmail()+"<br><hr><br>"+message.getContent();
+
+            msg.setContent(content, "text/html; charset=UTF-8");
+            msg.setSentDate(new Date());
+
+            Transport.send(msg);
+        }
+
+        return "redirect:/index#section5";
     }
 }
