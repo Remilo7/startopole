@@ -9,6 +9,7 @@
     <list default="true" id="72f61d8b-55b9-49a1-b282-c73a5e372f5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/startopole/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/startopole/controller/MainController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -73,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
+            <state relative-caret-position="308">
+              <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -82,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/startopole/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+            <state relative-caret-position="-965">
+              <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
               <folding>
                 <element signature="e#2237#2238#0" expanded="true" />
                 <element signature="e#2267#2268#0" expanded="true" />
@@ -180,12 +181,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/startopole/controller/TemplateEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/startopole/StartopoleApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/startopole/controller/EmailController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/startopole/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/startopole/configuration/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/datasource-cfg.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/static/css/index_style.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/startopole/controller/MainController.java" />
       </list>
     </option>
   </component>
@@ -322,7 +323,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564314010158" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564314864191" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="E:/Pobrane/slf4j-1.7.26/slf4j-1.7.26/slf4j-simple-1.7.26.jar!/" />
@@ -566,13 +567,6 @@
       <workItem from="1556141527861" duration="106354000" />
       <workItem from="1559280987346" duration="28060000" />
       <workItem from="1560612548667" duration="18802000" />
-    </task>
-    <task id="LOCAL-00008" summary="Deploy">
-      <created>1551881344084</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1551881344084</updated>
     </task>
     <task id="LOCAL-00009" summary="Visual adjustments to top background">
       <created>1552165384373</created>
@@ -910,11 +904,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564268836849</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="POM changes">
+      <created>1564314079381</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1564314079381</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422885000" />
+    <option name="totallyTimeSpent" value="423369000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -940,7 +941,7 @@
       <window_info id="Persistence" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49570817" visible="true" weight="0.3253012" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49570817" weight="0.3253012" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1055,7 +1056,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/Documents/PWR/VI Semestr/ZTW" />
     </ignored-roots>
-    <MESSAGE value="Displaying details of fencers" />
     <MESSAGE value="Deploy" />
     <MESSAGE value="sample images" />
     <MESSAGE value="Font size of calendar" />
@@ -1080,7 +1080,8 @@
     <MESSAGE value="Logo image" />
     <MESSAGE value="Connection to Heroku database" />
     <MESSAGE value="Contact form and facebook button on main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Contact form and facebook button on main page" />
+    <MESSAGE value="POM changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="POM changes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/galleries.jsp">
@@ -1435,15 +1436,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
+        <state relative-caret-position="308">
+          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/startopole/controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        <state relative-caret-position="-965">
+          <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
           <folding>
             <element signature="e#2237#2238#0" expanded="true" />
             <element signature="e#2267#2268#0" expanded="true" />

@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import sun.jvm.hotspot.debugger.AddressException;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -103,7 +102,7 @@ public class MainController {
 
     @RequestMapping(value="/sendMessage", method= RequestMethod.POST)
     public String doActions(@ModelAttribute FormMessage message, @RequestParam String action)
-            throws AddressException, MessagingException {
+            throws MessagingException {
 
         if ("send".equals(action.toLowerCase())) {
 
