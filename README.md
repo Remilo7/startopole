@@ -13,6 +13,7 @@ Spring MVC webapp of fencing club, presenting details of the club, helping admin
     - Image gallery
     - Contact
  - Articles page
+ - Contact form
  - Login and registration system
  - Connection to the MySQL database
  - Administrator panel 
