@@ -16,9 +16,7 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleDAO articleDAO;
 
     @Transactional
-    public void add(Article news) {
-        articleDAO.add(news);
-    }
+    public void add(Article news) { articleDAO.add(news); }
 
     @Transactional
     public void edit(Article news) {

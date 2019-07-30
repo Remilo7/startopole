@@ -14,9 +14,7 @@ public class ArticleDAOImpl implements ArticleDAO {
     @Autowired
     private SessionFactory session;
 
-    public void add(Article news){
-        session.getCurrentSession().save(news);
-    }
+    public void add(Article news){ session.getCurrentSession().save(news); }
 
     public void edit(Article news) {
         session.getCurrentSession().update(news);
