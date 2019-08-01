@@ -70,7 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/newHistory", "/editHistory", "/trainings_management", "/newTraining",
                 "/editTraining", "/coaches_management", "/newCoach", "/editCoach", "/members_management",
                 "/newMember", "/editMember", "/contact_management", "/newContact", "/editContact", "/newMessage",
-                "/fencerDetails").access("hasRole('ADMIN')");
+                "/fencerDetails", "/all_users_management").access("hasRole('ADMIN')");
 
         // For USER only.
         http.authorizeRequests().antMatchers("/userPanel").access("hasRole('USER')");

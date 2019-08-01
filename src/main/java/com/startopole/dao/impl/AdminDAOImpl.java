@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class AdminDAOImpl implements AdminDAO {
 
@@ -26,5 +28,9 @@ public class AdminDAOImpl implements AdminDAO {
 
     public Admin getAdmin(String username) {
         return session.getCurrentSession().get(Admin.class, username);
+    }
+
+    public List getAllAdmins(){
+        return session.getCurrentSession().createQuery("FROM Admin").list();
     }
 }

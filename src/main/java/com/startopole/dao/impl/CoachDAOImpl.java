@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class CoachDAOImpl implements CoachDAO {
 
@@ -26,5 +28,9 @@ public class CoachDAOImpl implements CoachDAO {
 
     public Coach getCoach(String username) {
         return session.getCurrentSession().get(Coach.class, username);
+    }
+
+    public List getAllCoaches() {
+        return session.getCurrentSession().createQuery("FROM Coach").list();
     }
 }

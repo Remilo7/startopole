@@ -63,7 +63,7 @@ public class UsersController {
     }
 
     @RequestMapping(value="/users.do", method= RequestMethod.POST)
-    public String doActions(@ModelAttribute("user") UsersManagementViewModel user, @RequestParam String action, Map<String, Object> map){
+    public String doActions(@ModelAttribute("user") UsersManagementViewModel user, @RequestParam String action){
 
         if ("activate".equals(action.toLowerCase())) {
 

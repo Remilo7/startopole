@@ -60,6 +60,7 @@
     </nav>
 </div>
 
+<!-- Treść strony -->
 
 <div class="user_panel container-fluid">
 

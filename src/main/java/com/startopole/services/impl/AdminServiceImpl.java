@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class AdminServiceImpl implements AdminService {
 
@@ -31,5 +33,10 @@ public class AdminServiceImpl implements AdminService {
     @Transactional
     public Admin getAdmin(String username) {
         return adminDAO.getAdmin(username);
+    }
+
+    @Transactional
+    public List getAllAdmins(){
+        return adminDAO.getAllAdmins();
     }
 }

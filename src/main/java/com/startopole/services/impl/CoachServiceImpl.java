@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class CoachServiceImpl implements CoachService {
 
@@ -31,5 +33,10 @@ public class CoachServiceImpl implements CoachService {
     @Transactional
     public Coach getCoach(String username) {
         return coachDAO.getCoach(username);
+    }
+
+    @Transactional
+    public List getAllCoaches(){
+        return coachDAO.getAllCoaches();
     }
 }
